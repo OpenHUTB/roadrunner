@@ -25,7 +25,8 @@ for i = 1 : numel(all_dirs)-1
 
         % 将翻译结果部署到软件中
         start_pos = strfind(cur_mlx_folder, 'roadrunner\');
-        matlab_html_dir = fullfile(matlabroot, "help", cur_mlx_folder(19:end));
+        matlab_html_dir = fullfile(matlabroot, "help", ...
+            cur_mlx_folder(start_pos:end));
         copyfile(dst_html_path, matlab_html_dir);
     end
 end
