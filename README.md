@@ -16,6 +16,6 @@
 
 <img src=fig/insert_link.png alt="插入链接" width="780" />
 
-
+2. 为了使mlx文件能够直接运行，mlx文件名不用html文件名中的中划线，改用下划线。
 
 
