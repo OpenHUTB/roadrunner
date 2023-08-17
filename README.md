@@ -18,4 +18,17 @@
 
 2. 为了使mlx文件能够直接运行，mlx文件名不用html文件名中的中划线，改用下划线。
 
+3. 还未翻译的文件列表
+```text
+https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/roadrunner-asset-types.html
+
+https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/matlab-and-simulink-integration.html
+
+https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/roadrunner-asset-library.html
+
+https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/fundamentals.html 中曲线编辑以下
+
+https://ww2.mathworks.cn/help/roadrunner/ref/sdmapviewertool.html
+```
+
 
