@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>世界设置工具</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S5 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S6 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>世界设置工具</span></h1><div  class = 'S1'><span></span></div><h2  class = 'S2'><span>描述</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>世界设置工具</span><span>用于配置地理位置 和环境模型的大小。</span></div><div  class = 'S3'><span>RoadRunner</span><span> </span><span>允许选择对模型进行地理配准，这意味着它们被构建为匹配 地球表面的特定位置。</span></div><h2  class = 'S2'><span>打开世界设置工具</span></h2><div  class = 'S3'><span>在 RoadRunner 工具栏上，单击</span><span style=' font-weight: bold;'>“世界设置工具”</span><span>按钮：</span></div><div  class = 'S3'><img class = "imageNode" src = "data:image/png;base64,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" width = "70" height = "70" alt = "" style = "vertical-align: baseline; width: 70px; height: 70px;"></img></div><h2  class = 'S2'><span>例子</span></h2><h3  class = 'S4'><span style=' font-weight: bold;'>指定场景的初始纬度/经度原点</span></h3><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。</span></li><li  class = 'S6'><span>输入要用作原点的所需纬度和经度 属性</span><span style=' font-weight: bold;'>窗格的世界</span><span style=' font-weight: bold;'>原点</span><span>部分中的场景。</span></li><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>属性</span><span>窗格上的</span><span style=' font-weight: bold;'>应用世界变化</span><span>按钮。</span></li></ol><h3  class = 'S4'><span style=' font-weight: bold;'>清除地理位置</span></h3><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。</span></li><li  class = 'S6'><span>按</span><span style=' font-weight: bold;'>属性</span><span>窗格中的</span><span style=' font-weight: bold;'>清除世界投影</span><span>按钮。</span></li><li  class = 'S6'><span>将出现一个警告对话框，指出清除投影会使导入的投影无效 地理信息系统文件。要继续，请按</span><span style=' font-weight: bold;'>清除</span><span>按钮</span></li></ol><h3  class = 'S4'><span style=' font-weight: bold;'>将现有 GIS 文件的地理位置居中</span></h3><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。</span></li><li  class = 'S6'><span>单击要使投影居中的 GIS 文件。</span></li><li  class = 'S6'><span>按</span><span style=' font-weight: bold;'>属性</span><span>窗格中的选定</span><span style=' font-weight: bold;'>世界居中</span><span>按钮。</span></li><li  class = 'S6'><span>按</span><span style=' font-weight: bold;'>属性</span><span>窗格中</span><span style=' font-weight: bold;'>的应用世界变化</span><span>按钮。</span></li><li  class = 'S6'><span>将出现一个对话框，询问您是只想更改世界投影（“</span><span style=' font-weight: bold;'>仅更改投影</span><span>”按钮）还是要变换 新投影的模型（</span><span style=' font-weight: bold;'>变换场景</span><span>按钮）。 请参阅有关更改世界设置的说明以确定适当的操作，然后单击 相应的按钮</span></li></ol><h3  class = 'S4'><span style=' font-weight: bold;'>将环境的原点更改为特定的纬度/经度</span></h3><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。</span></li><li  class = 'S6'><span>输入要用作原点的所需纬度和经度 属性</span><span style=' font-weight: bold;'>窗格的世界</span><span style=' font-weight: bold;'>原点</span><span>部分中的场景。</span></li><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>属性</span><span>窗格上的</span><span style=' font-weight: bold;'>应用世界变化</span><span>按钮。</span></li><li  class = 'S6'><span>将出现一个对话框，询问您是只想更改世界投影（“</span><span style=' font-weight: bold;'>仅更改投影</span><span>”按钮）还是要变换 新投影的模型（</span><span style=' font-weight: bold;'>变换场景</span><span>按钮）。 请参阅有关更改世界设置的说明以确定适当的操作，然后按 相应的按钮。</span></li></ol><div  class = 'S3'><span>或者，请按照下列步骤操作：</span></div><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。找到绿色 表示</span><span style=' font-weight: bold;'>世界原点</span><span>的圆形标记。</span></li><li  class = 'S6'><span>单击世界</span><span style=' font-weight: bold;'>原点</span><span>标记并将其拖动到所需的新标记 原点位置。</span></li><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>属性</span><span>窗格上的</span><span style=' font-weight: bold;'>应用世界变化</span><span>按钮。</span></li><li  class = 'S6'><span>将出现一个对话框，询问您是只想更改世界投影（“</span><span style=' font-weight: bold;'>仅更改投影</span><span>”按钮），还是要转换 模型到新投影（</span><span style=' font-weight: bold;'>变换场景</span><span>按钮）。请参阅的 关于更改世界设置的注意事项以确定适当的操作，然后按 适当的按钮。</span></li></ol><div  class = 'S3'><span style=' font-weight: bold;'>注意</span></div><div  class = 'S3'><span>要变换场景，您有两个选项：</span></div><ul  class = 'S5'><li  class = 'S6'><span style=' font-weight: bold;'>仅更改投影</span><span> </span><span>— 如果需要，请使用此选项 在不移动任何场景对象的情况下更改原点。这会改变经度/经度 对象的位置，但保留其本地 （XY） 坐标。</span></li><li  class = 'S6'><span style=' font-weight: bold;'>变换场景</span><span> </span><span>— 如果要更改 原点和移动对象以保留其在地球上的位置。这将更改 对象的本地 （XY） 坐标，但保留其地理坐标（纬度/纬度） 坐标。</span></li></ul><h3  class = 'S4'><span style=' font-weight: bold;'>更改工作区大小和位置</span></h3><ol  class = 'S5'><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>世界设置工具</span><span>按钮。</span></li><li  class = 'S6'><span>在</span><span style=' font-weight: bold;'>属性</span><span>窗格中输入所需的工作空间参数（</span><span style=' font-weight: bold;'>中心</span><span>和</span><span style=' font-weight: bold;'>范围</span><span>）。</span></li></ol><div  class = 'S3'><span>或者，请按照下列步骤操作：</span></div><ol  class = 'S5'><li  class = 'S6'><span>在场景中的蓝色</span><span style=' font-weight: bold;'>“世界原点</span><span>”框中单击并拖动 编辑画布以移动工作区的中心。</span></li><li  class = 'S6'><span>单击并拖动蓝色</span><span style=' font-weight: bold;'>“世界原点</span><span>”框的边缘或角落以更改工作区的尺寸。</span></li><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>属性</span><span>窗格上的</span><span style=' font-weight: bold;'>应用世界变化</span><span>按钮。</span></li></ol><div  class = 'S3'><span style=' font-weight: bold;'>注意</span></div><div  class = 'S3'><span>更改工作空间不会移除或修改场景中的任何数据。工作时 对于大型 GIS 文件，缩小工作空间以仅查看 要在给定时间查看的文件。但是，请记住增加工作区 导出前再次调整大小。</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 世界设置工具
+% 
+%% 描述
+% *世界设置工具*用于配置地理位置 和环境模型的大小。
+% 
+% RoadRunner 允许选择对模型进行地理配准，这意味着它们被构建为匹配 地球表面的特定位置。
+%% 打开世界设置工具
+% 在 RoadRunner 工具栏上，单击*“世界设置工具”*按钮：
+% 
+% 
+%% 例子
+% *指定场景的初始纬度/经度原点*
+%% 
+% # 单击*世界设置工具*按钮。
+% # 输入要用作原点的所需纬度和经度 属性*窗格的世界原点*部分中的场景。
+% # 单击*属性*窗格上的*应用世界变化*按钮。
+% *清除地理位置*
+%% 
+% # 单击*世界设置工具*按钮。
+% # 按*属性*窗格中的*清除世界投影*按钮。
+% # 将出现一个警告对话框，指出清除投影会使导入的投影无效 地理信息系统文件。要继续，请按*清除*按钮
+% *将现有 GIS 文件的地理位置居中*
+%% 
+% # 单击*世界设置工具*按钮。
+% # 单击要使投影居中的 GIS 文件。
+% # 按*属性*窗格中的选定*世界居中*按钮。
+% # 按*属性*窗格中*的应用世界变化*按钮。
+% # 将出现一个对话框，询问您是只想更改世界投影（“*仅更改投影*”按钮）还是要变换 新投影的模型（*变换场景*按钮）。 请参阅有关更改世界设置的说明以确定适当的操作，然后单击 
+% 相应的按钮
+% *将环境的原点更改为特定的纬度/经度*
+%% 
+% # 单击*世界设置工具*按钮。
+% # 输入要用作原点的所需纬度和经度 属性*窗格的世界原点*部分中的场景。
+% # 单击*属性*窗格上的*应用世界变化*按钮。
+% # 将出现一个对话框，询问您是只想更改世界投影（“*仅更改投影*”按钮）还是要变换 新投影的模型（*变换场景*按钮）。 请参阅有关更改世界设置的说明以确定适当的操作，然后按 
+% 相应的按钮。
+%% 
+% 或者，请按照下列步骤操作：
+%% 
+% # 单击*世界设置工具*按钮。找到绿色 表示*世界原点*的圆形标记。
+% # 单击世界*原点*标记并将其拖动到所需的新标记 原点位置。
+% # 单击*属性*窗格上的*应用世界变化*按钮。
+% # 将出现一个对话框，询问您是只想更改世界投影（“*仅更改投影*”按钮），还是要转换 模型到新投影（*变换场景*按钮）。请参阅的 关于更改世界设置的注意事项以确定适当的操作，然后按 
+% 适当的按钮。
+%% 
+% *注意*
+% 
+% 要变换场景，您有两个选项：
+%% 
+% * *仅更改投影* — 如果需要，请使用此选项 在不移动任何场景对象的情况下更改原点。这会改变经度/经度 对象的位置，但保留其本地 （XY） 坐标。
+% * *变换场景* — 如果要更改 原点和移动对象以保留其在地球上的位置。这将更改 对象的本地 （XY） 坐标，但保留其地理坐标（纬度/纬度） 坐标。
+% *更改工作区大小和位置*
+%% 
+% # 单击*世界设置工具*按钮。
+% # 在*属性*窗格中输入所需的工作空间参数（*中心*和*范围*）。
+%% 
+% 或者，请按照下列步骤操作：
+%% 
+% # 在场景中的蓝色*“世界原点*”框中单击并拖动 编辑画布以移动工作区的中心。
+% # 单击并拖动蓝色*“世界原点*”框的边缘或角落以更改工作区的尺寸。
+% # 单击*属性*窗格上的*应用世界变化*按钮。
+%% 
+% *注意*
+% 
+% 更改工作空间不会移除或修改场景中的任何数据。工作时 对于大型 GIS 文件，缩小工作空间以仅查看 要在给定时间查看的文件。但是，请记住增加工作区 导出前再次调整大小。
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

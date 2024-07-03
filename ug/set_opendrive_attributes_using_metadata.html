@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>使用元数据设置ASAM opdrive属性</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>使用元数据设置ASAM opdrive属性</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>这个例子展示了如何向RoadRunner场景中的元素添加元数据，然后将场景导出为ASAM opdrive®文件格式。元数据设置导出文件中ASAM opdrive属性的值。</span></div><h2  class = 'S3'><span style=' font-weight: bold;'>装载RoadRunner工场景</span></h2><div  class = 'S2'><span>从菜单中，选择</span><span style=' font-weight: bold;'>File &gt; Open Scene</span><span>，将现有的RoadRunner场景(.rrscene)加载到场景编辑器中。</span></div><div  class = 'S2'><span>另外，您也可以创建RoadRunner场景或导入ASAM opdrive文件并将数据转换为RoadRunner场景。</span></div><h2  class = 'S3'><span>为道路添加元数据</span></h2><div  class = 'S2'><span>1.在“道路规划工具”工具栏上，单击“</span><span style=' font-weight: bold;'>道路规划工具</span><span>”按钮。在场景中选择一条您想要添加元数据的道路。</span></div><div  class = 'S2'><span>2.在</span><span style=' font-weight: bold;'>Metadata</span><span>面板中单击</span><span style=' font-weight: bold;'>Add Metadata</span><span>，并指定</span><span style=' font-weight: bold;'>Name</span><span>参数为</span><span style=' font-weight: bold;'>OpenDRIVE_name</span><span>。将</span><span style=' font-weight: bold;'>Type</span><span>参数设置为</span><span style=' font-weight: bold;'>String</span><span>。单击“</span><span style=' font-weight: bold;'>OK</span><span>”，将“</span><span style=' font-weight: bold;'>Value</span><span>”参数指定为“</span><span style=' font-weight: bold; font-family: monospace;'>Highway</span><span>”。</span></div><h2  class = 'S3'><span>为连接点添加元数据</span></h2><div  class = 'S2'><span>1.在RoadRunner工具栏上，单击“自</span><span style=' font-weight: bold;'>定义连接工具</span><span>”按钮。在场景中选择要添加元数据的连接点。</span></div><div  class = 'S2'><span>2.在</span><span style=' font-weight: bold;'>Metadata</span><span>面板中单击</span><span style=' font-weight: bold;'>Add Metadata</span><span>，并指定</span><span style=' font-weight: bold;'>Name</span><span>参数为</span><span style=' font-weight: bold;'>JunctionType</span><span>。将</span><span style=' font-weight: bold;'>Type</span><span>参数设置为</span><span style=' font-weight: bold;'>String</span><span>。单击“确定”并将“</span><span style=' font-weight: bold;'>Value”</span><span>参数指定为“ </span><span style=' font-weight: bold;'>Automatic</span><span>”。</span></div><h2  class = 'S3'><span>导出到ASAM OpenDRIVE</span></h2><div  class = 'S2'><span>从菜单中选择</span><span style=' font-weight: bold;'>“File &gt; Export &gt; ASAM opdrive (.xodr)</span><span>”。将场景导出为opdrive®1.5格式。</span></div><h2  class = 'S3'><span>检查ASAM opdrive属性</span></h2><div  class = 'S2'><span>检查导出的.xodr文件中的属性。</span></div><div  class = 'S2'><span>你可以验证</span><span style=' font-weight: bold;'>OpenDRIVE_name</span><span>元数据的公路值添加到一个道路已经设置的道路的名称属性在导出的文件为“</span><span style=' font-weight: bold;'>Highway</span><span>”。属性值在</span><span style=' font-weight: bold;'>&lt;road&gt;</span><span>元素中定义。</span></div><div  class = 'S2'><span style=' font-weight: bold; font-family: monospace;'>&lt;road name="Highway" </span><span style=' font-family: monospace;'>length="1.9080212697060187e+1" id="4" junction="-1"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;link&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;successor elementType="junction" elementId="28"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/link&gt;</span></div><div  class = 'S2'><span>您还可以验证值为</span><span style=' font-weight: bold;'>Automatic</span><span>的</span><span style=' font-weight: bold;'>JunctionType</span><span>元数据是否已导出为用户数据。属性</span><span style=' font-weight: bold;'>JunctionType</span><span>在</span><span style=' font-weight: bold;'>&lt;userData&gt;</span><span>元素中定义。</span></div><div  class = 'S2'><span style=' font-family: monospace;'>&lt;junction id="28" name="junction28"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;connection id="0" incomingRoad="5" connectingRoad="29" contactPoint="start"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-1" to="-1"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/connection&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;connection id="1" incomingRoad="3" connectingRoad="30" contactPoint="start"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-2" to="-1"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-4" to="-3"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-5" to="-4"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-6" to="-5"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/connection&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;connection id="2" incomingRoad="4" connectingRoad="30" contactPoint="end"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-2" to="-1"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="2" to="-4"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="3" to="-5"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/connection&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;connection id="3" incomingRoad="4" connectingRoad="33" contactPoint="start"&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-1" to="-1"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-2" to="-2"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;laneLink from="-3" to="-3"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/connection&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>       </span><span style=' font-weight: bold; font-family: monospace;'> &lt;userData code="JunctionType" value="Automatic"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;userData&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>            &lt;vectorJunction junctionId="{275e57c8-914f-466d-9c62-37ae8f570897}"/&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        &lt;/userData&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    &lt;/junction&gt; </span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 使用元数据设置ASAM opdrive属性
+% 
+% 
+% 这个例子展示了如何向RoadRunner场景中的元素添加元数据，然后将场景导出为ASAM opdrive®文件格式。元数据设置导出文件中ASAM opdrive属性的值。
+%% *装载RoadRunner工场景*
+% 从菜单中，选择*File > Open Scene*，将现有的RoadRunner场景(.rrscene)加载到场景编辑器中。
+% 
+% 另外，您也可以创建RoadRunner场景或导入ASAM opdrive文件并将数据转换为RoadRunner场景。
+%% 为道路添加元数据
+% 1.在“道路规划工具”工具栏上，单击“*道路规划工具*”按钮。在场景中选择一条您想要添加元数据的道路。
+% 
+% 2.在*Metadata*面板中单击*Add Metadata*，并指定*Name*参数为*OpenDRIVE_name*。将*Type*参数设置为*String*。单击“*OK*”，将“*Value*”参数指定为“|*Highway*|”。
+%% 为连接点添加元数据
+% 1.在RoadRunner工具栏上，单击“自*定义连接工具*”按钮。在场景中选择要添加元数据的连接点。
+% 
+% 2.在*Metadata*面板中单击*Add Metadata*，并指定*Name*参数为*JunctionType*。将*Type*参数设置为*String*。单击“确定”并将“*Value”*参数指定为“ 
+% *Automatic*”。
+%% 导出到ASAM OpenDRIVE
+% 从菜单中选择*“File > Export > ASAM opdrive (.xodr)*”。将场景导出为opdrive®1.5格式。
+%% 检查ASAM opdrive属性
+% 检查导出的.xodr文件中的属性。
+% 
+% 你可以验证*OpenDRIVE_name*元数据的公路值添加到一个道路已经设置的道路的名称属性在导出的文件为“*Highway*”。属性值在*<road>*元素中定义。
+% 
+% |*<road name="Highway"* length="1.9080212697060187e+1" id="4" junction="-1">|
+% 
+% |<link>|
+% 
+% |<successor elementType="junction" elementId="28"/>|
+% 
+% |</link>|
+% 
+% 您还可以验证值为*Automatic*的*JunctionType*元数据是否已导出为用户数据。属性*JunctionType*在*<userData>*元素中定义。
+% 
+% |<junction id="28" name="junction28">|
+% 
+% |<connection id="0" incomingRoad="5" connectingRoad="29" contactPoint="start">|
+% 
+% |<laneLink from="-1" to="-1"/>|
+% 
+% |</connection>|
+% 
+% |<connection id="1" incomingRoad="3" connectingRoad="30" contactPoint="start">|
+% 
+% |<laneLink from="-2" to="-1"/>|
+% 
+% |<laneLink from="-4" to="-3"/>|
+% 
+% |<laneLink from="-5" to="-4"/>|
+% 
+% |<laneLink from="-6" to="-5"/>|
+% 
+% |</connection>|
+% 
+% |<connection id="2" incomingRoad="4" connectingRoad="30" contactPoint="end">|
+% 
+% |<laneLink from="-2" to="-1"/>|
+% 
+% |<laneLink from="2" to="-4"/>|
+% 
+% |<laneLink from="3" to="-5"/>|
+% 
+% |</connection>|
+% 
+% |<connection id="3" incomingRoad="4" connectingRoad="33" contactPoint="start">|
+% 
+% |<laneLink from="-1" to="-1"/>|
+% 
+% |<laneLink from="-2" to="-2"/>|
+% 
+% |<laneLink from="-3" to="-3"/>|
+% 
+% |</connection>|
+% 
+% *<userData code="JunctionType" value="Automatic"/>*|
+% 
+% |<userData>|
+% 
+% |<vectorJunction junctionId="{275e57c8-914f-466d-9c62-37ae8f570897}"/>|
+% 
+% |</userData>|
+% 
+% |</junction>| 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

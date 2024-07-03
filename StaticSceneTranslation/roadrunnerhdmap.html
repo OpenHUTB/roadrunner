@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>roadrunnerHDMap</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>roadrunnerHDMap</span></h1><div  class = 'S1'><span></span></div><h2  class = 'S2'><span>描述</span></h2><div  class = 'S3'><span>对象使您能够使用 MATLAB 创建</span><span> </span><span>RoadRunner</span><span> </span><span>HD 地图。您还可以使用车道、车道边界、车道标记、 和路口。</span><span style=' font-family: monospace;'>roadrunnerHDMap</span></div><div  class = 'S3'><span>路跑者</span><span>高精地图是用于表示高清 （HD） 地图数据的道路数据模型 在</span><span>路跑者</span><span>场景中。此模型定义了一个简单的数据结构来表示道路 使用车道、车道边界、车道标记和交汇点的布局。您可以使用</span><span>RoadRunner</span><span> </span><span>HD Map为您的自定义HD地图数据创建一个二进制文件，导入 二进制文件到</span><span>RoadRunner</span><span>中，并构建场景。</span></div><h2  class = 'S2'><span>创造</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>语法</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap = roadrunnerHDMap()</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap = roadrunnerHDMap(Name=Value)</span></div><div  class = 'S3'><span style=' font-weight: bold;'>描述</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>= roadrunnerHDMap（）</span><span> </span><span>创建一个 空</span><span>路跑者</span><span>高清地图。您可以使用车道、车道边界、车道填充地图 使用对象的标记和交汇点 性能。映射中的数据使用协议缓冲区进行序列化并保存 以二进制格式，扩展名使用写入 方法。可以使用 read 方法读取扩展名的文件并填充空对象。</span><span style=' font-family: monospace;'>roadrunnerHDMap</span><span style=' font-family: monospace;'>.rrhd</span><span style=' font-family: monospace;'>.rrhd</span><span style=' font-family: monospace;'>roadrunnerHDMap</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>= roadrunnerHDMap（</span><span style=' font-family: monospace;'>Name=Value</span><span style=' font-family: monospace;'>）</span><span> </span><span>使用名称-值对设置属性。</span></div><h2  class = 'S2'><span>性能</span></h2><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Author</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>地图作者</span></div><div  class = 'S3'><span style=' font-weight: bold;'>姓名</span><span style=' font-weight: bold;'> </span><span>字符</span><span>矢量</span><span> </span><span>|</span><span>字符串标量</span></div><div  class = 'S3'><span>地图作者的姓名，以字符串标量形式指定。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 创建 拥有的</span><span> </span><span>RoadRunner</span><span> </span><span>高清地图。</span><span style=' font-family: monospace;'>rrMap</span><span style=' font-family: monospace;'>roadrunnerHDMap</span><span style=' font-family: monospace;'>Author</span><span style=' font-family: monospace;'>"Map Author"</span><span style=' font-family: monospace;'>"Map Author"</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-weight: bold;'> </span><span>|</span><span style=' font-family: monospace;'>char</span><span style=' font-family: monospace;'>string</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>GeoReference</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>路网原点</span></div><div  class = 'S3'><span>行向量的</span><span style=' font-weight: bold;'>地理坐标</span></div><div  class = 'S3'><span>道路网络原点的地理坐标，指定为行向量 形式 [， ] 与两个 元素。 表示坐标的纬度 以度为单位，表示 坐标（以度为单位）。这些值与 WGS84 参考有关 椭球体，是 GPS 数据使用的标准椭球体。</span><span style=' font-family: monospace;'>lat</span><span style=' font-family: monospace;'>lon</span><span style=' font-family: monospace;'>lat</span><span style=' font-family: monospace;'>lon</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-family: monospace;'>double</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>GeographicBoundary</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>几何数据</span></div><div  class = 'S3'><span>矩阵</span><span style=' font-weight: bold;'>的空间边界</span></div><div  class = 'S3'><span>3D 坐标中表示的几何数据的空间边界</span><span> </span><span>RoadRunner</span><span> </span><span>HD Map 投影的空间，指定为 2×3 的双精度矩阵 精度。矩阵中的元素表示最小值和最大值 3D 轴对齐框的位置。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =[]） 创建 拥有的</span><span> </span><span>RoadRunner</span><span> </span><span>高清地图。空间 地图 3D 坐标空间中几何数据的边界 投影由参数的双精度值指定。</span><span style=' font-family: monospace;'>rrMap</span><span style=' font-family: monospace;'>roadrunnerHDMap</span><span style=' font-family: monospace;'>Author</span><span style=' font-family: monospace;'>"Map Author"</span><span style=' font-family: monospace;'>GeographicBoundary</span><span style=' font-family: monospace;'>-0.782 -3.13 0;101.565 50 0</span><span style=' font-family: monospace;'>"Map Author"</span><span style=' font-family: monospace;'>GeographicBoundary</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-family: monospace;'>double</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Lanes</span><span style=' font-weight: bold;'>— 道路跑者的道路数组的车道</span><span style=' font-weight: bold;'>属性</span><span style=' font-weight: bold;'>.</span><span style=' font-family: monospace;'>hdmap.车道</span><span>对象</span></div><div  class = 'S3'><span>道路的车道属性，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.Lane</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =[]， =， =） 添加 有关地图车道的以下信息：车道 ID、坐标定义 车道几何形状、车道类型和行驶方向。</span><span style=' font-family: monospace;'>rrMap.Lanes(1)</span><span style=' font-family: monospace;'>roadrunner.hdmap.Lane</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"Lane1"</span><span style=' font-family: monospace;'>Geometry</span><span style=' font-family: monospace;'>-0.782 -1.56;50.78 23.43</span><span style=' font-family: monospace;'>LaneType</span><span style=' font-family: monospace;'>"Driving"</span><span style=' font-family: monospace;'>TravelDirection</span><span style=' font-family: monospace;'>"Forward"</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>LaneBoundaries</span><span style=' font-weight: bold;'>— RoadRunner</span><span style=' font-family: monospace;'>.hdmap.车道</span><span>边界对象的车道边界数组</span><span style=' font-weight: bold;'>的边界</span></div><div  class = 'S3'><span>车道的边界，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneBoundary</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =[]） 添加 车道边界到车道并定义每个车道的几何图形 边界。</span><span style=' font-family: monospace;'>rrMap.LaneBoundaries(1)</span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneBoundary</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"LaneBoundary1"</span><span style=' font-family: monospace;'>Geometry</span><span style=' font-family: monospace;'>0 0;50 25</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>LaneGroups</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>具有相似几何形状的车道组</span><span style=' font-weight: bold;'> </span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneGroup</span><span> </span><span>对象</span></div><div  class = 'S3'><span>具有相似几何图形的车道组，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneGroup</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的车道组添加到地图。</span><span style=' font-family: monospace;'>rrMap.LaneGroups</span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneGroup</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"LaneGroup1"</span><span style=' font-family: monospace;'>"LaneGroup1"</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>LaneMarkings</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>车道标记定义</span></div><div  class = 'S3'><span>数组</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.Lane标记</span><span>对象</span></div><div  class = 'S3'><span>车道标记定义，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneMark</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =） 从其相对资产添加车道标记资产 位置到小巷。</span><span style=' font-family: monospace;'>rrMap.LaneMarkings</span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneMarking</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"Dashed1"</span><span style=' font-family: monospace;'>AssetPath</span><span style=' font-family: monospace;'>"Assets/Markings/DashedSingleWhite.rrlms"</span><span style=' font-family: monospace;'>"Dashed1"</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Junctions</span><span style=' font-weight: bold;'>— </span><span style=' font-family: monospace;'>路口</span><span>数组 roadrunner.hdmap.Junction 对象</span></div><div  class = 'S3'><span>地图中的道路交汇点，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.Junction</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的联结添加到 地图。</span><span style=' font-family: monospace;'>rrMap.Junctions</span><span style=' font-family: monospace;'>roadrunner.hdmap.Junction</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"Junction1"</span><span style=' font-family: monospace;'>"Junction1"</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>BarrierTypes</span><span style=' font-weight: bold;'>— 屏障</span><span style=' font-weight: bold;'>挤压的屏障类型和</span><span style=' font-weight: bold;'> </span><span style=' font-family: monospace;'>roadrunner.hdmap.BarrierType</span><span> </span><span>对象的</span><span style=' font-weight: bold;'>类型信息数组</span></div><div  class = 'S3'><span>屏障挤出的屏障类型和类型信息，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.BarrierType</span><span> </span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =） 添加障碍 带 ID 的类型，用于阻隔挤出 指向延伸的资产路径 此屏障类型的信息。</span><span style=' font-family: monospace;'>rrMap.BarrierTypes</span><span style=' font-family: monospace;'>roadrunner.hdmap.BarrierType</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"BarrierType1"</span><span style=' font-family: monospace;'>ExtrusionPath</span><span style=' font-family: monospace;'>path</span><span style=' font-family: monospace;'>"BarrierType1"</span><span style=' font-family: monospace;'>path</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Barrier</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> roadrunner</span><span style=' font-family: monospace;'>.hdmap.屏障</span><span>对象地图数组</span><span style=' font-weight: bold;'>中的障碍</span></div><div  class = 'S3'><span>地图中的障碍，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.Barrier</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的屏障添加到 地图。</span><span style=' font-family: monospace;'>rrMap.Barrier</span><span style=' font-family: monospace;'>roadrunner.hdmap.Barrier</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"Barrier1"</span><span style=' font-family: monospace;'>"Barrier1"</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>SignTypes</span><span style=' font-weight: bold;'>— 标志特征的标志类型和roadrunner</span><span style=' font-family: monospace;'>的类型</span><span>信息数组.hdmap.SignType 对象</span></div><div  class = 'S3'><span>标志要素的标志类型和类型信息，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.SignType</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=， =） 为停车标志添加带有 ID 的标志类型 位于相对路径 上。</span><span style=' font-family: monospace;'>rrMap.SignTypes</span><span style=' font-family: monospace;'>roadrunner.hdmap.SignType</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"SignType1"</span><span style=' font-family: monospace;'>ExtrusionPath</span><span style=' font-family: monospace;'>AssetPath="Assets/Signs/UK/Sign_Parking.svg"</span><span style=' font-family: monospace;'>"SignType1"</span><span style=' font-family: monospace;'>"Assets/Sig</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Signs</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> roadrunner</span><span style=' font-family: monospace;'>.hdmap.Sign</span><span> </span><span>对象的</span><span style=' font-weight: bold;'>地图数组</span><span style=' font-weight: bold;'>中的标志</span></div><div  class = 'S3'><span>地图中的标志，指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.Sign</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的标志添加到地图。</span><span style=' font-family: monospace;'>rrMap.Sign</span><span style=' font-family: monospace;'>roadrunner.hdmap.Sign</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"Sign1"</span><span style=' font-family: monospace;'>"Sign1"</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>StaticObjectType</span><span style=' font-weight: bold;'>— 物理对象的属性 </span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObjectType</span><span> 对象的数组</span></div><div  class = 'S3'><span>物理对象的属性（包括道路家具和道具）， 指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObjectType</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的静态对象类型添加到 地图。</span><span style=' font-family: monospace;'>rrMap.StaticObjectType</span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObjectType</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"StaticObjectType1"</span><span style=' font-family: monospace;'>"StaticObjectType1"</span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>StaticObject</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObject</span><span> </span><span>对象的</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>map数组</span><span style=' font-weight: bold;'>中的静态对象</span></div><div  class = 'S3'><span>物理对象的属性（包括道路家具和道具）， 指定为</span><span> </span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObject</span><span>对象的数组。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （=） 将带有 ID 的静态对象添加到映射中。</span><span style=' font-family: monospace;'>rrMap.StaticObject</span><span style=' font-family: monospace;'>roadrunner.hdmap.StaticObject</span><span style=' font-family: monospace;'>ID</span><span style=' font-family: monospace;'>"StaticObject1"</span><span style=' font-family: monospace;'>"StaticObject1"</span></div><div  class = 'S3'><span></span></div><h2  class = 'S2'><span>对象函数</span></h2><div  class = 'S3'><span style=' font-family: monospace;'>write    </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将 HD 地图写入二进制文件</span></div><div  class = 'S3'><span style=' font-family: monospace;'>read    </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>从二进制文件中读取高清地图</span></div><div  class = 'S3'><span style=' font-family: monospace;'>plot    </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>绘制</span><span>路跑者</span><span>高清地图</span></div><div  class = 'S3'><span style=' font-family: monospace;'>readCRS </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>从</span><span> </span><span>RoadRunner</span><span> </span><span>高清地图读取坐标参考系统 （CRS） 数据</span></div><h2  class = 'S2'><span>例子</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>使用合成数据构建 RoadRunner 高清地图</span></div><div  class = 'S3'><span>通过调用对象创建 RoadRunner HD 地图。该对象返回一个地图，其中包含几何数据属性的作者和空间边界。</span><span style=' font-family: monospace;'>roadrunnerHDMap</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap = roadrunnerHDMap(Author=</span><span style=' font-family: monospace;'>"Map Author"</span><span style=' font-family: monospace;'>,GeographicBoundary=[-0.782 -3.13 0;101.565 50 0]);</span></div><div  class = 'S3'><span>使用该对象创建车道。指定车道 ID 的车道信息、定义车道几何形状的坐标、行驶方向和车道类型。</span><span style=' font-family: monospace;'>roadrunner.hdmap.Lane</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.Lanes(2) = roadrunner.hdmap.Lane(ID=</span><span style=' font-family: monospace;'>"Lane2"</span><span style=' font-family: monospace;'>,Geometry=[50.78 23.43;100.78 48.43],LaneType=</span><span style=' font-family: monospace;'>"Driving"</span><span style=' font-family: monospace;'>, TravelDirection=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.Lanes(1) = roadrunner.hdmap.Lane(ID=</span><span style=' font-family: monospace;'>"Lane1"</span><span style=' font-family: monospace;'>,Geometry=[0.782 -1.56;50.78 23.43],LaneType=</span><span style=' font-family: monospace;'>"Driving"</span><span style=' font-family: monospace;'>, TravelDirection=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span>为 和 添加连接信息。通过定义有关车道的前置任务和后续关系的信息来指定通道之间的对齐方式。</span><span style=' font-family: monospace;'>Lane1Lane2</span></div><div  class = 'S3'><span style=' font-family: monospace;'>addPredecessor(rrMap.Lanes(2),</span><span style=' font-family: monospace;'>"Lane1"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>addSuccessor(rrMap.Lanes(1),</span><span style=' font-family: monospace;'>"Lane2"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span>使用该对象创建道路的车道边界。指定车道 ID 的车道边界信息和定义车道几何的坐标。</span><span style=' font-family: monospace;'>roadrunner.hdmap.LaneBoundary</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.LaneBoundaries(4) = roadrunner.hdmap.LaneBoundary(ID=</span><span style=' font-family: monospace;'>"LaneBoundary4"</span><span style=' font-family: monospace;'>,Geometry=[50 25; 100 50]);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.LaneBoundaries(3) = roadrunner.hdmap.LaneBoundary(ID=</span><span style=' font-family: monospace;'>"LaneBoundary3"</span><span style=' font-family: monospace;'>,Geometry=[51.565 21.864; 101.565 46.869]);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.LaneBoundaries(2) = roadrunner.hdmap.LaneBoundary(ID=</span><span style=' font-family: monospace;'>"LaneBoundary2"</span><span style=' font-family: monospace;'>,Geometry=[1.565 -3.13; 51.565 21.864]);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrMap.LaneBoundaries(1) = roadrunner.hdmap.LaneBoundary(ID=</span><span style=' font-family: monospace;'>"LaneBoundary1"</span><span style=' font-family: monospace;'>,Geometry=[0 0; 50 25]);</span></div><div  class = 'S3'><span>将车道边界链接到车道。定义每个车道的左车道边界和右车道边界，并指定车道和车道边界之间的对齐方式。</span></div><div  class = 'S3'><span style=' font-family: monospace;'>leftBoundary(rrMap.Lanes(1),</span><span style=' font-family: monospace;'>"LaneBoundary1"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rightBoundary(rrMap.Lanes(1),</span><span style=' font-family: monospace;'>"LaneBoundary2"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>leftBoundary(rrMap.Lanes(2),</span><span style=' font-family: monospace;'>"LaneBoundary4"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rightBoundary(rrMap.Lanes(2),</span><span style=' font-family: monospace;'>"LaneBoundary3"</span><span style=' font-family: monospace;'>,Alignment=</span><span style=' font-family: monospace;'>"Forward"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% roadrunnerHDMap
+% 
+%% 描述
+% 对象使您能够使用 MATLAB 创建 RoadRunner HD 地图。您还可以使用车道、车道边界、车道标记、 和路口。|roadrunnerHDMap|
+% 
+% 路跑者高精地图是用于表示高清 （HD） 地图数据的道路数据模型 在路跑者场景中。此模型定义了一个简单的数据结构来表示道路 使用车道、车道边界、车道标记和交汇点的布局。您可以使用RoadRunner 
+% HD Map为您的自定义HD地图数据创建一个二进制文件，导入 二进制文件到RoadRunner中，并构建场景。
+%% 创造
+% *语法*
+% 
+% |rrMap = roadrunnerHDMap()|
+% 
+% |rrMap = roadrunnerHDMap(Name=Value)|
+% 
+% *描述*
+% 
+% |rrMap = roadrunnerHDMap（）| 创建一个 空路跑者高清地图。您可以使用车道、车道边界、车道填充地图 使用对象的标记和交汇点 
+% 性能。映射中的数据使用协议缓冲区进行序列化并保存 以二进制格式，扩展名使用写入 方法。可以使用 read 方法读取扩展名的文件并填充空对象。|roadrunnerHDMap.rrhd.rrhdroadrunnerHDMap|
+% 
+% |rrMap = roadrunnerHDMap（Name=Value）| 使用名称-值对设置属性。
+%% 性能
+% |*Author|— 地图作者*
+% 
+% *姓名 字符矢量 |字符串标量
+% 
+% 地图作者的姓名，以字符串标量形式指定。
+% 
+% *示例：*= （=） 创建 拥有的 RoadRunner 高清地图。|rrMaproadrunnerHDMapAuthor"Map Author""Map 
+% Author"|
+% 
+% *数据类型： ||charstring|
+% 
+% 
+% 
+% |*GeoReference|— 路网原点*
+% 
+% 行向量的*地理坐标*
+% 
+% 道路网络原点的地理坐标，指定为行向量 形式 [， ] 与两个 元素。 表示坐标的纬度 以度为单位，表示 坐标（以度为单位）。这些值与 WGS84 参考有关 
+% 椭球体，是 GPS 数据使用的标准椭球体。|latlonlatlon|
+% 
+% *数据类型：*|double|
+% 
+% 
+% 
+% |*GeographicBoundary|— 几何数据*
+% 
+% 矩阵*的空间边界*
+% 
+% 3D 坐标中表示的几何数据的空间边界 RoadRunner HD Map 投影的空间，指定为 2×3 的双精度矩阵 精度。矩阵中的元素表示最小值和最大值 
+% 3D 轴对齐框的位置。
+% 
+% *示例：*= （=， =[]） 创建 拥有的 RoadRunner 高清地图。空间 地图 3D 坐标空间中几何数据的边界 投影由参数的双精度值指定。|rrMaproadrunnerHDMapAuthor"Map 
+% Author"GeographicBoundary-0.782 -3.13 0;101.565 50 0"Map Author"GeographicBoundary|
+% 
+% *数据类型：*|double|
+% 
+% 
+% 
+% |*Lanes|— 道路跑者的道路数组的车道属性.*|hdmap.车道|对象
+% 
+% 道路的车道属性，指定为 |roadrunner.hdmap.Lane|对象的数组。
+% 
+% *示例：*= （=， =[]， =， =） 添加 有关地图车道的以下信息：车道 ID、坐标定义 车道几何形状、车道类型和行驶方向。|rrMap.Lanes(1)roadrunner.hdmap.LaneID"Lane1"Geometry-0.782 
+% -1.56;50.78 23.43LaneType"Driving"TravelDirection"Forward"|
+% 
+% 
+% 
+% |*LaneBoundaries|— RoadRunner*|.hdmap.车道|边界对象的车道边界数组*的边界*
+% 
+% 车道的边界，指定为 |roadrunner.hdmap.LaneBoundary|对象的数组。
+% 
+% *示例：*= （=， =[]） 添加 车道边界到车道并定义每个车道的几何图形 边界。|rrMap.LaneBoundaries(1)roadrunner.hdmap.LaneBoundaryID"LaneBoundary1"Geometry0 
+% 0;50 25|
+% 
+% 
+% 
+% |*LaneGroups|— 具有相似几何形状的车道组 |roadrunner.hdmap.LaneGroup| 对象
+% 
+% 具有相似几何图形的车道组，指定为 |roadrunner.hdmap.LaneGroup|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的车道组添加到地图。|rrMap.LaneGroupsroadrunner.hdmap.LaneGroupID"LaneGroup1""LaneGroup1"|
+% 
+% 
+% 
+% |*LaneMarkings|— 车道标记定义*
+% 
+% 数组 |roadrunner.hdmap.Lane标记|对象
+% 
+% 车道标记定义，指定为 |roadrunner.hdmap.LaneMark|对象的数组。
+% 
+% *示例：*= （=， =） 从其相对资产添加车道标记资产 位置到小巷。|rrMap.LaneMarkingsroadrunner.hdmap.LaneMarkingID"Dashed1"AssetPath"Assets/Markings/DashedSingleWhite.rrlms""Dashed1"|
+% 
+% 
+% 
+% |*Junctions|—* |路口|数组 roadrunner.hdmap.Junction 对象
+% 
+% 地图中的道路交汇点，指定为 |roadrunner.hdmap.Junction|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的联结添加到 地图。|rrMap.Junctionsroadrunner.hdmap.JunctionID"Junction1""Junction1"|
+% 
+% 
+% 
+% |*BarrierTypes|— 屏障挤压的屏障类型和 |roadrunner.hdmap.BarrierType| 对象的*类型信息数组*
+% 
+% 屏障挤出的屏障类型和类型信息，指定为 |roadrunner.hdmap.BarrierType| 对象的数组。
+% 
+% *示例：*= （=， =） 添加障碍 带 ID 的类型，用于阻隔挤出 指向延伸的资产路径 此屏障类型的信息。|rrMap.BarrierTypesroadrunner.hdmap.BarrierTypeID"BarrierType1"ExtrusionPathpath"BarrierType1"path|
+% 
+% 
+% 
+% |*Barrier|— roadrunner*|.hdmap.屏障|对象地图数组*中的障碍*
+% 
+% 地图中的障碍，指定为 |roadrunner.hdmap.Barrier|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的屏障添加到 地图。|rrMap.Barrierroadrunner.hdmap.BarrierID"Barrier1""Barrier1"|
+% 
+% 
+% 
+% |*SignTypes|— 标志特征的标志类型和roadrunner*|的类型|信息数组.hdmap.SignType 对象
+% 
+% 标志要素的标志类型和类型信息，指定为 |roadrunner.hdmap.SignType|对象的数组。
+% 
+% *示例：*= （=， =） 为停车标志添加带有 ID 的标志类型 位于相对路径 上。|rrMap.SignTypesroadrunner.hdmap.SignTypeID"SignType1"ExtrusionPathAssetPath="Assets/Signs/UK/Sign_Parking.svg""SignType1""Assets/Sig|
+% 
+% 
+% 
+% |*Signs|— roadrunner*|.hdmap.Sign| 对象的*地图数组中的标志*
+% 
+% 地图中的标志，指定为 |roadrunner.hdmap.Sign|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的标志添加到地图。|rrMap.Signroadrunner.hdmap.SignID"Sign1""Sign1"|
+% 
+% 
+% 
+% |*StaticObjectType|— 物理对象的属性* |roadrunner.hdmap.StaticObjectType| 对象的数组
+% 
+% 物理对象的属性（包括道路家具和道具）， 指定为 |roadrunner.hdmap.StaticObjectType|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的静态对象类型添加到 地图。|rrMap.StaticObjectTyperoadrunner.hdmap.StaticObjectTypeID"StaticObjectType1""StaticObjectType1"|
+% 
+% 
+% 
+% |*StaticObject|— |roadrunner.hdmap.StaticObject| 对象的 map数组中的静态对象*
+% 
+% 物理对象的属性（包括道路家具和道具）， 指定为 |roadrunner.hdmap.StaticObject|对象的数组。
+% 
+% *示例：*= （=） 将带有 ID 的静态对象添加到映射中。|rrMap.StaticObjectroadrunner.hdmap.StaticObjectID"StaticObject1""StaticObject1"|
+% 
+% 
+%% 对象函数
+% |write|    使用 MATLAB 将 HD 地图写入二进制文件
+% 
+% |read|    使用 MATLAB 从二进制文件中读取高清地图
+% 
+% |plot|    使用 MATLAB 绘制路跑者高清地图
+% 
+% |readCRS| 使用 MATLAB 从 RoadRunner 高清地图读取坐标参考系统 （CRS） 数据
+%% 例子
+% *使用合成数据构建 RoadRunner 高清地图*
+% 
+% 通过调用对象创建 RoadRunner HD 地图。该对象返回一个地图，其中包含几何数据属性的作者和空间边界。|roadrunnerHDMap|
+% 
+% |rrMap = roadrunnerHDMap(Author="Map Author",GeographicBoundary=[-0.782 -3.13 
+% 0;101.565 50 0]);|
+% 
+% 使用该对象创建车道。指定车道 ID 的车道信息、定义车道几何形状的坐标、行驶方向和车道类型。|roadrunner.hdmap.Lane|
+% 
+% |rrMap.Lanes(2) = roadrunner.hdmap.Lane(ID="Lane2",Geometry=[50.78 23.43;100.78 
+% 48.43],LaneType="Driving", TravelDirection="Forward");|
+% 
+% |rrMap.Lanes(1) = roadrunner.hdmap.Lane(ID="Lane1",Geometry=[0.782 -1.56;50.78 
+% 23.43],LaneType="Driving", TravelDirection="Forward");|
+% 
+% 为 和 添加连接信息。通过定义有关车道的前置任务和后续关系的信息来指定通道之间的对齐方式。|Lane1Lane2|
+% 
+% |addPredecessor(rrMap.Lanes(2),"Lane1",Alignment="Forward");|
+% 
+% |addSuccessor(rrMap.Lanes(1),"Lane2",Alignment="Forward");|
+% 
+% 使用该对象创建道路的车道边界。指定车道 ID 的车道边界信息和定义车道几何的坐标。|roadrunner.hdmap.LaneBoundary|
+% 
+% |rrMap.LaneBoundaries(4) = roadrunner.hdmap.LaneBoundary(ID="LaneBoundary4",Geometry=[50 
+% 25; 100 50]);|
+% 
+% |rrMap.LaneBoundaries(3) = roadrunner.hdmap.LaneBoundary(ID="LaneBoundary3",Geometry=[51.565 
+% 21.864; 101.565 46.869]);|
+% 
+% |rrMap.LaneBoundaries(2) = roadrunner.hdmap.LaneBoundary(ID="LaneBoundary2",Geometry=[1.565 
+% -3.13; 51.565 21.864]);|
+% 
+% |rrMap.LaneBoundaries(1) = roadrunner.hdmap.LaneBoundary(ID="LaneBoundary1",Geometry=[0 
+% 0; 50 25]);|
+% 
+% 将车道边界链接到车道。定义每个车道的左车道边界和右车道边界，并指定车道和车道边界之间的对齐方式。
+% 
+% |leftBoundary(rrMap.Lanes(1),"LaneBoundary1",Alignment="Forward");|
+% 
+% |rightBoundary(rrMap.Lanes(1),"LaneBoundary2",Alignment="Forward");|
+% 
+% |leftBoundary(rrMap.Lanes(2),"LaneBoundary4",Alignment="Forward");|
+% 
+% |rightBoundary(rrMap.Lanes(2),"LaneBoundary3",Alignment="Forward");|
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

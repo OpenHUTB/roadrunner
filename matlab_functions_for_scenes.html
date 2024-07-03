@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>MATLAB实验室场景和高清地图功能</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>MATLAB实验室</span><span>场景和高清地图功能</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>RoadRunner</span><span> </span><span>提供 MATLAB 函数，用于执行常见的工作流任务，例如打开、 关闭、保存场景和项目以及导入和导出场景。 这些函数通过 MATLAB 对象进行操作，该对象打开并设置</span><span> </span><span>RoadRunner</span><span> </span><span>主用户界面，以便您可以通过编程方式控制它。</span></div><div  class = 'S2'><span>RoadRunner</span><span> </span><span>还提供了 MATLAB 函数，可将自定义数据转换为 RoadRunner HD Map 数据模型，并将您的数据导入</span><span> </span><span>RoadRunner</span><span>。用 这些功能，您可以创建新地图，编辑现有地图，并读取和 从文件写入。您还可以表示车道、车道边界、车道标记、 高清地图中的交汇点、障碍和标志。</span></div><div  class = 'S2'><span>这些功能需要自动驾驶工具箱许可证。</span></div><h2  class = 'S3'><span>对象</span></h2><div  class = 'S2'><a href = "./roadrunner.html"><span style=' font-family: monospace;'>roadrunner</span></a><span style=' font-family: monospace;'>              </span><span>使用 MATLAB 启动 RoadRunner 应用程序</span></div><div  class = 'S2'><a href = "https://ww2.mathworks.cn/help/roadrunner/ref/roadrunnerhdmap.html"><span style=' font-family: monospace;'>roadrunnerHDMap</span></a><span style=' font-family: monospace;'>         </span><span>使用 MATLAB 创建 RoadRunner 高清地图</span></div><h2  class = 'S3'><span>功能</span></h2><div  class = 'S2'><span style=' font-weight: bold;'>连接、关闭和状态</span></div><div  class = 'S2'><span style=' font-family: monospace;'>close </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>关闭</span><span> </span><span>RoadRunner</span></div><div  class = 'S2'><span style=' font-family: monospace;'>roadrunner.connect </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>连接到</span><span> </span><span>RoadRunner</span><span> </span><span>的开放实例</span></div><div  class = 'S2'><span style=' font-family: monospace;'>status </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>获取</span><span> </span><span>RoadRunner</span><span> </span><span>的当前状态</span></div><div  class = 'S2'><span style=' font-weight: bold;'>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>newProject </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>创建新的</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>openProject </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>的 Open</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>saveProject </span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>保存</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-weight: bold;'>现场</span></div><div  class = 'S2'><span style=' font-family: monospace;'>newScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>创建新的</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S2'><span style=' font-family: monospace;'>openScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>打开</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S2'><span style=' font-family: monospace;'>saveScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>保存</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S2'><span style=' font-weight: bold;'>导出和导入</span></div><div  class = 'S2'><span style=' font-family: monospace;'>exportScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>导出</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S2'><span style=' font-family: monospace;'>exportCustomFormat</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出为自定义格式</span></div><div  class = 'S2'><span style=' font-family: monospace;'>importScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将场景导入</span><span> </span><span>RoadRunner</span></div><div  class = 'S2'><span style=' font-weight: bold;'>高清地图</span></div><div  class = 'S2'><span style=' font-family: monospace;'>write</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将 HD 地图写入二进制文件</span></div><div  class = 'S2'><span style=' font-family: monospace;'>read</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>从二进制文件中读取高清地图</span></div><div  class = 'S2'><span style=' font-family: monospace;'>plot</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>绘制RoadRunner高清地图</span></div><div  class = 'S2'><span style=' font-family: monospace;'>readCRS</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>从</span><span> </span><span>RoadRunner</span><span> </span><span>高清地图读取坐标参考系统 （CRS） 数据</span></div><h2  class = 'S3'><span>主题</span></h2><div  class = 'S2'><a href = "./control_roadrunner_using_terminal.html"><span style=' font-weight: bold;'>在控制台模式下以编程方式控制 RoadRunner</span></a><span></span></div><div  class = 'S2'><span>在非图形环境中使用终端启动</span><span>RoadRunner</span><span>。</span></div><div  class = 'S2'><a href = "./export_multiple_scenes_using_matlab.html"><span style=' font-weight: bold;'>使用 MATLAB 导出多个场景</span></a><span></span></div><div  class = 'S2'><span>使用 MATLAB 函数将项目中的所有</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出为支持的格式。</span></div><div  class = 'S2'><a href = "./import_multiple_scenes_using_matlab.html"><span style=' font-weight: bold;'>使用 MATLAB 函数在格式之间转换场景</span></a></div><div  class = 'S2'><span>导入</span><span>RoadRunner</span><span>项目中的多个场景，并使用MATLAB函数将它们导出为支持的格式。</span></div><div  class = 'S2'><a href = "./build_simple_roads_using_hdmaps.html"><span style=' font-weight: bold;'>使用 RoadRunner 高清地图以编程方式构建简单道路</span></a><span></span></div><div  class = 'S2'><span>使用</span><span>RoadRunner</span><span> </span><span>HD Map MATLAB函数构建简单的道路。</span></div><div  class = 'S2'><a href = "./pikes_peak.html"><span style=' font-weight: bold;'>使用 RoadRunner 高清地图构建派克峰RoadRunner 3D 场景</span></a><span style=' font-weight: bold;'>（自动驾驶工具箱）</span></div><div  class = 'S2'><span>使用 MATLAB 函数为科罗拉多州派克峰构建 RoadRunner 3D 场景。</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% MATLAB实验室场景和高清地图功能
+% 
+% 
+% RoadRunner 提供 MATLAB 函数，用于执行常见的工作流任务，例如打开、 关闭、保存场景和项目以及导入和导出场景。 这些函数通过 MATLAB 
+% 对象进行操作，该对象打开并设置 RoadRunner 主用户界面，以便您可以通过编程方式控制它。
+% 
+% RoadRunner 还提供了 MATLAB 函数，可将自定义数据转换为 RoadRunner HD Map 数据模型，并将您的数据导入 RoadRunner。用 
+% 这些功能，您可以创建新地图，编辑现有地图，并读取和 从文件写入。您还可以表示车道、车道边界、车道标记、 高清地图中的交汇点、障碍和标志。
+% 
+% 这些功能需要自动驾驶工具箱许可证。
+%% 对象
+% <./roadrunner.mlx |roadrunner|>              使用 MATLAB 启动 RoadRunner 应用程序
+% 
+% <https://ww2.mathworks.cn/help/roadrunner/ref/roadrunnerhdmap.html |roadrunnerHDMap|>         
+% 使用 MATLAB 创建 RoadRunner 高清地图
+%% 功能
+% *连接、关闭和状态*
+% 
+% |close| 使用 MATLAB 关闭 RoadRunner
+% 
+% |roadrunner.connect| 使用 MATLAB 连接到 RoadRunner 的开放实例
+% 
+% |status| 使用 MATLAB 获取 RoadRunner 的当前状态
+% 
+% *项目*
+% 
+% |newProject| 使用 MATLAB 创建新的 RoadRunner 项目
+% 
+% |openProject| 使用 MATLAB 的 Open RoadRunner 项目
+% 
+% |saveProject| 使用 MATLAB 保存 RoadRunner 项目
+% 
+% *现场*
+% 
+% |newScene|使用 MATLAB 创建新的 RoadRunner 场景
+% 
+% |openScene|使用 MATLAB 打开 RoadRunner 场景
+% 
+% |saveScene|使用 MATLAB 保存 RoadRunner 场景
+% 
+% *导出和导入*
+% 
+% |exportScene|使用 MATLAB 导出 RoadRunner 场景
+% 
+% |exportCustomFormat|使用 MATLAB 将 RoadRunner 场景导出为自定义格式
+% 
+% |importScene|使用 MATLAB 将场景导入 RoadRunner
+% 
+% *高清地图*
+% 
+% |write|使用 MATLAB 将 HD 地图写入二进制文件
+% 
+% |read|使用 MATLAB 从二进制文件中读取高清地图
+% 
+% |plot|使用 MATLAB 绘制RoadRunner高清地图
+% 
+% |readCRS|使用 MATLAB 从 RoadRunner 高清地图读取坐标参考系统 （CRS） 数据
+%% 主题
+% <./control_roadrunner_using_terminal.mlx *在控制台模式下以编程方式控制 RoadRunner*>
+% 
+% 在非图形环境中使用终端启动RoadRunner。
+% 
+% <./export_multiple_scenes_using_matlab.mlx *使用 MATLAB 导出多个场景*>
+% 
+% 使用 MATLAB 函数将项目中的所有 RoadRunner 场景导出为支持的格式。
+% 
+% <./import_multiple_scenes_using_matlab.mlx *使用 MATLAB 函数在格式之间转换场景*>
+% 
+% 导入RoadRunner项目中的多个场景，并使用MATLAB函数将它们导出为支持的格式。
+% 
+% <./build_simple_roads_using_hdmaps.mlx *使用 RoadRunner 高清地图以编程方式构建简单道路*>
+% 
+% 使用RoadRunner HD Map MATLAB函数构建简单的道路。
+% 
+% <./pikes_peak.mlx *使用 RoadRunner 高清地图构建派克峰RoadRunner 3D 场景*>*（自动驾驶工具箱）*
+% 
+% 使用 MATLAB 函数为科罗拉多州派克峰构建 RoadRunner 3D 场景。
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

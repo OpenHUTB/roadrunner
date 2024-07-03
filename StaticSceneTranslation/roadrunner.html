@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>roadrunner</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S5 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>roadrunner</span></h1><div  class = 'S1'><span></span></div><h2  class = 'S2'><span>描述</span></h2><div  class = 'S3'><span>对象使您能够执行常见的工作流任务 在</span><span> </span><span>RoadRunner</span><span> </span><span>应用程序中，例如打开、关闭和保存场景和项目，从 MATLAB 命令行。您还可以使用对象函数从文件导入数据，以及 将场景从</span><span>RoadRunner</span><span>导出为其他格式。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S3'><span>首次创建对象之前，必须 安装</span><span>RoadRunner</span><span>并以交互方式激活您的</span><span>RoadRunner</span><span>许可证。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S3'><span>该对象需要自动驾驶工具箱™的许可证。</span><span style=' font-family: monospace;'>roadrunner</span></div><h2  class = 'S2'><span>创造</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>语法</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder)</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder,Name=Value)</span></div><div  class = 'S3'><span style=' font-weight: bold;'>描述</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner（projectFolder）</span><span> </span><span>从默认安装文件夹位置启动</span><span> </span><span>RoadRunner</span><span>，并在 位于 指定位置的现有项目。</span><span style=' font-family: monospace;'>projectFolder</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner（projectFolder，</span><span style=' font-family: monospace;'>Name=Value</span><span style=' font-family: monospace;'>）</span><span> </span><span>也使用 name-value 参数来设置对象的属性。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S3'><span style=' font-weight: bold;'>输入参数</span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>projectFolder</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>路跑者</span><span style=' font-weight: bold;'>项目文件夹路径</span></div><div  class = 'S3'><span style=' font-weight: bold;'>字符</span><span>矢量</span><span> </span><span>|</span><span>字符串标量</span></div><div  class = 'S3'><span>RoadRunner</span><span> </span><span>项目文件夹路径，指定为字符矢量或字符串标量。 </span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>打开位于的项目 在 Windows 机器上的</span><span> </span><span>RoadRunner</span><span> </span><span>应用程序中的文件夹中。</span><span style=' font-family: monospace;'>roadrunner("C:\My Project")</span><span style=' font-family: monospace;'>C:\My Project</span><span>®</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-weight: bold;'> </span><span>|</span><span style=' font-family: monospace;'>char</span><span style=' font-family: monospace;'>string</span></div><h2  class = 'S2'><span>性能</span></h2><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>InstallationFolder</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>本地</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>RoadRunner</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>安装文件夹</span></div><div  class = 'S3'><span style=' font-weight: bold;'>字符</span><span>矢量</span><span>的位置 |</span><span> </span><span>字符串标量</span></div><div  class = 'S3'><span>本地</span><span> </span><span>RoadRunner</span><span> </span><span>安装文件夹的位置，指定为字符矢量或字符串 标量。</span></div><div  class = 'S3'><span>以下是 Windows 和 Linux 平台上的默认</span><span> </span><span>RoadRunner</span><span> </span><span>安装位置：</span><span>®</span></div><ul  class = 'S4'><li  class = 'S5'><span>窗户–</span><span style=' font-family: monospace;'>C:\Program Files\RoadRunner</span><span style=' font-family: monospace;'> </span><span style=' font-style: italic; font-family: monospace;'>R20NNx</span><span style=' font-family: monospace;'>\bin\win64</span></li><li  class = 'S5'><span>Linux， Ubuntu –</span><span>®</span><span style=' font-family: monospace;'>/usr/local/RoadRunner_</span><span style=' font-style: italic; font-family: monospace;'>R20NNx</span><span style=' font-family: monospace;'>/bin/glnxa64</span></li></ul><div  class = 'S3'><span style=' font-style: italic; font-family: monospace;'>R20NNx</span><span>是您发布的版本 正在使用。要自定义</span><span> </span><span>RoadRunner</span><span> </span><span>安装文件夹的默认值，请使用 MATLAB 设置 API。</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-weight: bold;'> </span><span>|</span><span style=' font-family: monospace;'>char</span><span style=' font-family: monospace;'>string</span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>NoDisplay</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>在</span><span style=' font-weight: bold;'>控制台模式下</span></div><div  class = 'S3'><span style=' font-weight: bold;'>启动 RoadRunner 假</span><span style=' font-family: monospace;'>或 0</span><span>（默认） |</span><span style=' font-family: monospace;'>真或 1</span></div><div  class = 'S3'><span>在非图形环境中以控制台模式启动</span><span> </span><span>RoadRunner</span><span>，指定为 或 。</span><span style=' font-family: monospace;'>logical 0 (false)</span><span style=' font-family: monospace;'>logical 1 (true)</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-family: monospace;'>logical</span></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>Ports</span><span style=' font-weight: bold;'>—</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>在指定的</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold; font-family: monospace;'>apiPort</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>和</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold; font-family: monospace;'>cosimPort</span></div><div  class = 'S3'><span>矩阵</span><span style=' font-weight: bold;'>上启动 RoadRunner</span></div><div  class = 'S3'><span>在指定和 上启动</span><span> </span><span>RoadRunner</span><span> </span><span>， 指定为大小为 1 x 2 的矩阵。</span><span>路跑者</span><span>API 服务器端口 （） 和</span><span> </span><span>RoadRunner 场景</span><span>模拟 API 服务器端口 （） 是 默认情况下，当您启动</span><span>RoadRunner</span><span>应用程序时自动分配。服务器在你打开</span><span>RoadRunner</span><span>项目后，在localhost：port本地运行。如果分配的端口不空闲，则会发生连接错误。在 在这种情况下，您可以显式地为对象或函数赋值并使用对象或函数。</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>cosimPort</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>cosimPort</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>cosimPort</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>connect</span></div><div  class = 'S3'><span style=' font-weight: bold;'>示例：</span><span>= （，= [54321, 54322])启动</span><span> </span><span>RoadRunner</span><span> </span><span>和</span><span> </span><span>RoadRunner 方案</span><span> </span><span>on 和 54321 和 分别为54322。</span><span style=' font-family: monospace;'>rrApp</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>projectFolder</span><span style=' font-family: monospace;'>Ports</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>cosimPort</span></div><div  class = 'S3'><span style=' font-weight: bold;'>数据类型：</span><span style=' font-family: monospace;'>int</span></div><h2  class = 'S2'><span>对象函数</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>项目</span></div><div  class = 'S3'><span style=' font-family: monospace;'>newProject</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>创建新的</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S3'><span style=' font-family: monospace;'>openProject</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>的 Open</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S3'><span style=' font-family: monospace;'>saveProject</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>保存</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S3'><span style=' font-weight: bold;'>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>newScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>创建新的</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>openScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>打开</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>saveScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>保存</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>exportScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>导出</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>exportCustomFormat</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出为自定义格式</span></div><div  class = 'S3'><span style=' font-family: monospace;'>importScene</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将场景导入</span><span> </span><span>RoadRunner</span></div><div  class = 'S3'><span style=' font-weight: bold;'>场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>newScenario</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>在</span><span> </span><span>RoadRunner 场景中</span><span>创建新场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>openScenario</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>在</span><span> </span><span>RoadRunner 场景中</span><span>打开场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>saveScenario</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>在</span><span> </span><span>RoadRunner 场景中</span><span>保存场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>exportScenario</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>从</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>importScenario</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>将文件导入</span><span> </span><span>RoadRunner 场景</span></div><div  class = 'S3'><span style=' font-family: monospace;'>createSimulation</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>创建</span><span> </span><span>RoadRunner 场景</span><span>模拟</span></div><div  class = 'S3'><span style=' font-family: monospace;'>getScenarioVariable</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>获取</span><span> </span><span>RoadRunner</span><span> </span><span>场景变量的值</span></div><div  class = 'S3'><span style=' font-family: monospace;'>setScenarioVariable</span><span> </span><span>(RoadRunner Scenario)</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>设置</span><span> </span><span>RoadRunner</span><span> </span><span>场景变量</span></div><div  class = 'S3'><span style=' font-family: monospace;'>remapAnchor</span><span>(RoadRunner Scenario)</span><span>在 MATLAB</span><span> </span><span>的</span><span> </span><span>RoadRunner 场景中</span><span>重新映射道路锚点</span></div><div  class = 'S3'><span style=' font-weight: bold;'>连接、关闭和状态</span></div><div  class = 'S3'><span style=' font-family: monospace;'>roadrunner.connect</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>连接到</span><span> </span><span>RoadRunner</span><span> </span><span>的开放实例</span></div><div  class = 'S3'><span style=' font-family: monospace;'>close</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>关闭</span><span> </span><span>RoadRunner</span></div><div  class = 'S3'><span style=' font-family: monospace;'>status</span><span>使用</span><span> </span><span>MATLAB</span><span> </span><span>获取</span><span> </span><span>RoadRunner</span><span> </span><span>的当前状态</span></div><h2  class = 'S2'><span>例子</span></h2><div  class = 'S3'><span style=' font-weight: bold;'>从默认安装文件夹启动RoadRunner应用程序</span></div><div  class = 'S3'><span>使用该变量指定现有项目的路径。例如，此代码显示 Windows® 计算机上位于 的项目路径。</span><span style=' font-family: monospace;'>projectFolderC:\RR\MyProject</span></div><div  class = 'S3'><span style=' font-family: monospace;'>projectFolder = </span><span style=' font-family: monospace;'>"C:\RR\MyProject"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S3'><span>创建一个对象，并通过将项目指定为要创建场景的位置来打开 RoadRunner。此示例假定 RoadRunner 安装在其默认位置。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder); </span></div><div  class = 'S3'><span style=' font-weight: bold;'>更改默认 RoadRunner 安装文件夹设置</span></div><div  class = 'S3'><span>使用 MATLAB 函数修改默认的 RoadRunner 安装文件夹设置。</span><span style=' font-family: monospace;'>settings</span></div><div  class = 'S3'><span>您可以使用该函数为跨 MATLAB 会话保留的对象的属性指定一个值，也可以为给定的 MATLAB 会话指定一个值。</span><span style=' font-family: monospace;'>InstallationFolder</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>settings</span></div><div  class = 'S3'><span>要为 设置永久默认值，请编辑 的值。指定的值在单个用户的多个 MATLAB 会话中保持不变。</span><span style=' font-family: monospace;'>InstallationFolder property</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>PersonalValue</span></div><div  class = 'S3'><span style=' font-family: monospace;'>s = settings;</span></div><div  class = 'S3'><span style=' font-family: monospace;'>s.roadrunner.application.InstallationFolder.PersonalValue = </span><span style=' font-family: monospace;'>"C:\Program Files\RoadRunner R2022a\bin\win64"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S3'><span>还可以为属性设置临时默认值。指定的值仅保留当前 MATLAB 会话，并在会话结束时清除。</span><span style=' font-family: monospace;'>InstallationFolder</span></div><div  class = 'S3'><span style=' font-family: monospace;'>s = settings;</span></div><div  class = 'S3'><span style=' font-family: monospace;'>s.roadrunner.application.InstallationFolder.TemporaryValue = </span><span style=' font-family: monospace;'>"C:\MyRoadRunner Install\bin\win64"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S3'><span style=' font-weight: bold;'>同时启动多个 RoadRunner 应用程序实例</span></div><div  class = 'S3'><span>通过创建对象的多个实例来打开多个 RoadRunner 应用程序。您可以使用每个实例以编程方式与它打开的 RoadRunner 应用程序进行交互。默认情况下，此代码中使用的场景包含在 RoadRunner 项目中。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S3'><span>通过指定项目打开 RoadRunner 的第一个实例。在此示例中，项目位于路径 上。</span><span style=' font-family: monospace;'>Lane Keep</span><span style=' font-family: monospace;'>C:\RR\Lane Keep</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp1 = roadrunner(</span><span style=' font-family: monospace;'>"C:\RR\Lane Keep"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span>在第一个项目中打开场景。</span><span style=' font-family: monospace;'>FourWaySignal</span></div><div  class = 'S3'><span style=' font-family: monospace;'>openScene(rrApp1,</span><span style=' font-family: monospace;'>"FourWaySignal.rrscene"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span>通过指定项目打开 RoadRunner 的第二个实例。在此示例中，项目位于路径 上。</span><span style=' font-family: monospace;'>USCityC:\RR\USCity</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp2 = roadrunner(</span><span style=' font-family: monospace;'>"C:\RR\USCity"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span>在第二个项目中打开场景</span><span style=' font-family: monospace;'>SanAntonio</span></div><div  class = 'S3'><span style=' font-family: monospace;'>openScene(rrApp2,</span><span style=' font-family: monospace;'>"SanAntonio.rrscene"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S3'><span style=' font-weight: bold;'>在控制台模式下启动 RoadRunner 应用程序</span></div><div  class = 'S3'><span>使用该变量指定现有项目的路径。例如，此代码显示 Windows® 计算机上位于 的项目路径。</span><span style=' font-family: monospace;'>projectFolder</span><span style=' font-family: monospace;'>C:\RR\MyProject</span></div><div  class = 'S3'><span style=' font-family: monospace;'>projectFolder = </span><span style=' font-family: monospace;'>"C:\RR\MyProject"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S3'><span>创建一个对象，并通过将项目指定为要创建场景的位置来打开 RoadRunner。此示例假定 RoadRunner 安装在其默认位置。指定属性以使用非图形终端在控制台模式下启动应用程序。</span><span style=' font-family: monospace;'>roadrunnerNoDisplay</span></div><div  class = 'S3'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder,InstallationFolder=</span><span style=' font-family: monospace;'>"C:\Program Files\RoadRunner R2022b\bin\win64"</span><span style=' font-family: monospace;'>,NoDisplay=true); </span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S3'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% roadrunner
+% 
+%% 描述
+% 对象使您能够执行常见的工作流任务 在 RoadRunner 应用程序中，例如打开、关闭和保存场景和项目，从 MATLAB 命令行。您还可以使用对象函数从文件导入数据，以及 
+% 将场景从RoadRunner导出为其他格式。|roadrunner|
+% 
+% 首次创建对象之前，必须 安装RoadRunner并以交互方式激活您的RoadRunner许可证。|roadrunner|
+% 
+% 该对象需要自动驾驶工具箱™的许可证。|roadrunner|
+%% 创造
+% *语法*
+% 
+% |rrApp = roadrunner(projectFolder)|
+% 
+% |rrApp = roadrunner(projectFolder,Name=Value)|
+% 
+% *描述*
+% 
+% |rrApp = roadrunner（projectFolder）| 从默认安装文件夹位置启动 RoadRunner，并在 位于 指定位置的现有项目。|projectFolder|
+% 
+% |rrApp = roadrunner（projectFolder，Name=Value）| 也使用 name-value 参数来设置对象的属性。|roadrunner|
+% 
+% *输入参数*
+% 
+% |*projectFolder|— 路跑者项目文件夹路径*
+% 
+% *字符*矢量 |字符串标量
+% 
+% RoadRunner 项目文件夹路径，指定为字符矢量或字符串标量。 
+% 
+% *示例：*打开位于的项目 在 Windows 机器上的 RoadRunner 应用程序中的文件夹中。|roadrunner("C:\My Project")C:\My 
+% Project|®
+% 
+% *数据类型： ||charstring|
+%% 性能
+% |*InstallationFolder|— 本地 RoadRunner 安装文件夹*
+% 
+% *字符*矢量的位置 | 字符串标量
+% 
+% 本地 RoadRunner 安装文件夹的位置，指定为字符矢量或字符串 标量。
+% 
+% 以下是 Windows 和 Linux 平台上的默认 RoadRunner 安装位置：®
+%% 
+% * 窗户–|C:\Program Files\RoadRunner _R20NNx_\bin\win64|
+% * Linux， Ubuntu –®|/usr/local/RoadRunner__R20NNx_/bin/glnxa64|
+%% 
+% |_R20NNx_|是您发布的版本 正在使用。要自定义 RoadRunner 安装文件夹的默认值，请使用 MATLAB 设置 API。
+% 
+% *数据类型： ||charstring|
+% 
+% |*NoDisplay|— 在控制台模式下*
+% 
+% *启动 RoadRunner 假*|或 0|（默认） ||真或 1|
+% 
+% 在非图形环境中以控制台模式启动 RoadRunner，指定为 或 。|logical 0 (false)logical 1 (true)|
+% 
+% *数据类型：*|logical|
+% 
+% |*Ports|— 在指定的 |apiPort| 和 |cosimPort*|
+% 
+% 矩阵*上启动 RoadRunner*
+% 
+% 在指定和 上启动 RoadRunner ， 指定为大小为 1 x 2 的矩阵。路跑者API 服务器端口 （） 和 RoadRunner 场景模拟 API 
+% 服务器端口 （） 是 默认情况下，当您启动RoadRunner应用程序时自动分配。服务器在你打开RoadRunner项目后，在localhost：port本地运行。如果分配的端口不空闲，则会发生连接错误。在 
+% 在这种情况下，您可以显式地为对象或函数赋值并使用对象或函数。|apiPortcosimPortapiPortcosimPortapiPortcosimPortroadrunnerconnect|
+% 
+% *示例：*= （，= [54321, 54322])启动 RoadRunner 和 RoadRunner 方案 on 和 54321 和 分别为54322。|rrApproadrunnerprojectFolderPortsapiPortcosimPort|
+% 
+% *数据类型：*|int|
+%% 对象函数
+% *项目*
+% 
+% |newProject|使用 MATLAB 创建新的 RoadRunner 项目
+% 
+% |openProject|使用 MATLAB 的 Open RoadRunner 项目
+% 
+% |saveProject|使用 MATLAB 保存 RoadRunner 项目
+% 
+% *场景*
+% 
+% |newScene|使用 MATLAB 创建新的 RoadRunner 场景
+% 
+% |openScene|使用 MATLAB 打开 RoadRunner 场景
+% 
+% |saveScene|使用 MATLAB 保存 RoadRunner 场景
+% 
+% |exportScene|使用 MATLAB 导出 RoadRunner 场景
+% 
+% |exportCustomFormat|使用 MATLAB 将 RoadRunner 场景导出为自定义格式
+% 
+% |importScene|使用 MATLAB 将场景导入 RoadRunner
+% 
+% *场景*
+% 
+% |newScenario| (RoadRunner Scenario)使用 MATLAB 在 RoadRunner 场景中创建新场景
+% 
+% |openScenario| (RoadRunner Scenario)使用 MATLAB 在 RoadRunner 场景中打开场景
+% 
+% |saveScenario| (RoadRunner Scenario)使用 MATLAB 在 RoadRunner 场景中保存场景
+% 
+% |exportScenario| (RoadRunner Scenario)使用 MATLAB 从 RoadRunner 场景导出场景
+% 
+% |importScenario| (RoadRunner Scenario)使用 MATLAB 将文件导入 RoadRunner 场景
+% 
+% |createSimulation| (RoadRunner Scenario)使用 MATLAB 创建 RoadRunner 场景模拟
+% 
+% |getScenarioVariable| (RoadRunner Scenario)使用 MATLAB 获取 RoadRunner 场景变量的值
+% 
+% |setScenarioVariable| (RoadRunner Scenario)使用 MATLAB 设置 RoadRunner 场景变量
+% 
+% |remapAnchor|(RoadRunner Scenario)在 MATLAB 的 RoadRunner 场景中重新映射道路锚点
+% 
+% *连接、关闭和状态*
+% 
+% |roadrunner.connect|使用 MATLAB 连接到 RoadRunner 的开放实例
+% 
+% |close|使用 MATLAB 关闭 RoadRunner
+% 
+% |status|使用 MATLAB 获取 RoadRunner 的当前状态
+%% 例子
+% *从默认安装文件夹启动RoadRunner应用程序*
+% 
+% 使用该变量指定现有项目的路径。例如，此代码显示 Windows® 计算机上位于 的项目路径。|projectFolderC:\RR\MyProject|
+% 
+% |projectFolder = "C:\RR\MyProject";|
+% 
+% 创建一个对象，并通过将项目指定为要创建场景的位置来打开 RoadRunner。此示例假定 RoadRunner 安装在其默认位置。|roadrunner|
+% 
+% |rrApp = roadrunner(projectFolder);| 
+% 
+% *更改默认 RoadRunner 安装文件夹设置*
+% 
+% 使用 MATLAB 函数修改默认的 RoadRunner 安装文件夹设置。|settings|
+% 
+% 您可以使用该函数为跨 MATLAB 会话保留的对象的属性指定一个值，也可以为给定的 MATLAB 会话指定一个值。|InstallationFolderroadrunnersettings|
+% 
+% 要为 设置永久默认值，请编辑 的值。指定的值在单个用户的多个 MATLAB 会话中保持不变。|InstallationFolder property 
+% PersonalValue|
+% 
+% |s = settings;|
+% 
+% |s.roadrunner.application.InstallationFolder.PersonalValue = "C:\Program Files\RoadRunner 
+% R2022a\bin\win64";|
+% 
+% 还可以为属性设置临时默认值。指定的值仅保留当前 MATLAB 会话，并在会话结束时清除。|InstallationFolder|
+% 
+% |s = settings;|
+% 
+% |s.roadrunner.application.InstallationFolder.TemporaryValue = "C:\MyRoadRunner 
+% Install\bin\win64";|
+% 
+% *同时启动多个 RoadRunner 应用程序实例*
+% 
+% 通过创建对象的多个实例来打开多个 RoadRunner 应用程序。您可以使用每个实例以编程方式与它打开的 RoadRunner 应用程序进行交互。默认情况下，此代码中使用的场景包含在 
+% RoadRunner 项目中。|roadrunner|
+% 
+% 通过指定项目打开 RoadRunner 的第一个实例。在此示例中，项目位于路径 上。|Lane KeepC:\RR\Lane Keep|
+% 
+% |rrApp1 = roadrunner("C:\RR\Lane Keep");|
+% 
+% 在第一个项目中打开场景。|FourWaySignal|
+% 
+% |openScene(rrApp1,"FourWaySignal.rrscene");|
+% 
+% 通过指定项目打开 RoadRunner 的第二个实例。在此示例中，项目位于路径 上。|USCityC:\RR\USCity|
+% 
+% |rrApp2 = roadrunner("C:\RR\USCity");|
+% 
+% 在第二个项目中打开场景|SanAntonio|
+% 
+% |openScene(rrApp2,"SanAntonio.rrscene");|
+% 
+% *在控制台模式下启动 RoadRunner 应用程序*
+% 
+% 使用该变量指定现有项目的路径。例如，此代码显示 Windows® 计算机上位于 的项目路径。|projectFolderC:\RR\MyProject|
+% 
+% |projectFolder = "C:\RR\MyProject";|
+% 
+% 创建一个对象，并通过将项目指定为要创建场景的位置来打开 RoadRunner。此示例假定 RoadRunner 安装在其默认位置。指定属性以使用非图形终端在控制台模式下启动应用程序。|roadrunnerNoDisplay|
+% 
+% |rrApp = roadrunner(projectFolder,InstallationFolder="C:\Program Files\RoadRunner 
+% R2022b\bin\win64",NoDisplay=true);| 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

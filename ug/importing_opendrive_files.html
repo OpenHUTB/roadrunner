@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>导入 ASAM OpenDRIVE 文件</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S4 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S5 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>导入</span><span> </span><span>ASAM OpenDRIVE</span><span> </span><span>文件</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>RoadRunner 可以可视化和导入 OpenDRIVE 1.4、OpenDRIVE 1.5、ASAM OpenDRIVE 1.6 和 ASAM OpenDRIVE 1.7 数据，在导入过程中将数据转换为内部道路格式。这 ASAM OpenDRIVE数据在导入前可视化。导入选项旨在启用 编辑 ASAM OpenDRIVE 文件。</span></div><h3  class = 'S3'><span style=' font-weight: bold;'>导入 ASAM OpenDRIVE 文件并构建场景</span></h3><div  class = 'S2'><span>1.在</span><span>RoadRunner</span><span>中，将ASAM OpenDRIVE文件添加到</span><span style=' font-weight: bold;'>库浏览器中</span><span>的文件夹中。</span></div><div  class = 'S2'><span>2.将 ASAM OpenDRIVE 文件从</span><span style=' font-weight: bold;'>库浏览器</span><span>拖到场景中。这 操作切换到</span><span> </span><a href = "./opendriveviewertool.html"><span style=' font-weight: bold;'>OpenDRIVE 查看器工具</span></a><span>。</span></div><div  class = 'S2'><img class = "imageNode" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAJvUlEQVR4AdWZj1NU1xXH83d0pp1ppgnRikZWBBSJFsZYommgMUOTmoiCYCGJMSUNWkUtEIRkjAVt0liMRAgyID+CgCgJiSaksZoqJlYBhSIBFUFwUQHZ2/t57H3zWN/+gqXTMnPnvre7797zPd9zvufcx0Nz5y8U/+/jof8lADPmhQg1HrEEi58EBNnUmBsUanNm638XhDTEaCSG+gcuGMU45qjQxd2/DX1ijJEcvtT6YeTyYUZZZOQZnpt2EAFBodombIZxD1tChjHsF8GLrKsWR/RiVFb40l6MOrYypvcf6xJvXXwp9t7ImjjraFbO2N3388dEWaVV1NcLUfGJaEtLEq3vvWW71XpBXDv9pXh0RsD0gsDwH88NslqCF/VicOEz0S1t0dEdfc8/P4yRYm2cEBtfF/dPNAlxtlkM9HSLzpudovLEfpFbmyaKLh4S5Z1HtPmDs/vEu83v3t95Jmd0a+M2wUgp+8ONmXMCfQsCr2M4nn4mdMlQftSzF/4dG/u9SEy8Ll597b7I+4u4d6xe4MVTl5o0Q3f+PVvsaym25X7314GMrzJvp326rSulIvXKxsI3Ol5If8n2VGLUECP0qYj7jIWLw+/Mtsg9Hg8amx0QMuIslPjc65wAAMmGxwmHOwkJoyI+XojYNaI/OV7UNvxNlF6qEru+3i0wHI/+qTG9P3FPclv0qzEdYU8v7ZgfuviWvyW4Z868BXcZGGsc8jPBcGW48TuvQcBA3oqos2LDK4MiIVFoADZtFt0dFzXqVQhkffWWFgaRq6Mu/Hz2/NvENF5lcxyhcshozGSvvQZB3N9YG9elAVi3bhxEQZH4sLlYA5HxRYYAQFxOQjeG4+HJGufpc16DmGMJGXgAhMyBxu5TYnPDZgGIzBOZghACsDdh4anRjr/zGgThhPqI5FeEgAmGzIfRy+1i17fvi/Qv0jUg5ANAVDhNJxivQVA5/fwt1zUlIidUSK1bLxr2po6H1OcZGhBYIbFRoeBFSzrJCV/mgmLEexAyMWEDdRJJScM6G4BZvVp83TSuTDs+3zEORAJ6+3QOo488IcRUgisjpjpPCgRs6CplDCuKmlSqmzd6xJ5TezVWyA+VJ4QYNQK5hU1XBcwbYJMDIdlgE6p02cqVTTojhJfMD5SLHEGxdEZkaAGGATM5p7IvRyXH/FPmCrViSgo2JRAA8QtcMKTVDWNowUh8vLAVFovSwvHWgfqhWMmQIYYMky9Ubir1jNnztEbQGwbUb6cMgoVo9mjuNEZUsjPLHBHPxYhL9eVaywEQxYaaAUavRPsxd2Ho1cmw4hMQ5AityIaIZW0iOem6XghJdliReUPzRy3B+AdCzJD8tCZUeG/A+AaEPUfUmWACIwBhrFolaLmvDfVr9UQx4TiTL2l1W7+nqKpwcTf7FAQ1gNCis6UN1/oqBYLwkkDocs/sThPkxQOMSJYolgBJLd/U6SkQn4JQHvvRw4+Nbl+fdF6r6oSTAsLMvQQzuC1Nb1X0hJcgFDMA2XBg45AnMuwzEDR6KAzngMpPqlvHxsbucgDSvG8EwbVKenmCq2k5pvdcCgAzjJDw0S/G/OCuiZwSCNVC/NRv1ljEsuXdNTW1nSMjIwNC/dlsY5zoJjBhBETPdbVL877quXQg9mRfk51w2ueHIhUyzFDN4aaiokq6XAwp2/W5p2e8+BkNN15LRqjuZtJLzhBSL25f2+JzEEjfuOdXXP6oqLhZhk2nbrTxAgApKeYgCCfJQo88CXICfIAFe24AgpOgO7n1OJwInRn+FvHorADrgYLCKzab7brR5gnXvLGIl0dWhtHz6hqVkrWDo6wzAPRZUqHusaeRfbNrj0CwEN1nVvY7rQODg70TDFY3eP6zRu2tBlXaFAB9FUMeonjbwflDzwG79/V72ShSwQlZlXtmAPjMKQhptBbzP5s5p2/Xn/ee7O/v/0GQqMY/q1Vo74kyM8elEwMdJRXv28NHbNmuNYYoEjXCrE4gt5wQL3SdH6mvP9bCOYTwdQXEKQiSKS4x6apmPIYDQBqNmmiGS4M0+cTr9EgYbzYAJkEQ/+VfHtS8j5GEkQJinEnycz3ndFcRtvvyD3wbEhbe6xUTUMiDcqU+VqOtFgcPCoHHSVZkk1meHdwOGWJ4lQRWg7OG2eDFGWFm9nfbav0Xr3rMgJgyAXVQGPXcb7670t7R/kAYme0yTZ9Rd3DoY/6WLmdFzxQEaAECI+RE6pZt42DMasE0GU8YUfkjlq24jEPNGFCfOQWhfsCMTiOtv3v5tXPQOk12q2X7jh8/fpaE9vSg5BEIgMAMUsvZOD0zy+fMEDaoEZ6ngcRxrhTJ6GSPQfAQssvCxCYHF8LMacVWfnU/DzV9802zeqVj3MdoqKtrj0BguPTM3YD5oc2Rv4ounRcSdpJeH2bonWg/tCLoWEdcAKDLbW1tu/RCbNx5FfPSOe1LnvxlHcP+wtkjNlyCwPPQ6jcroDF109b3aPSOHj16DdqzsnP2+gcElZP8gEH+qOjumMF4PE+LDZuwOvPxwNYVUc9+UF5eXsf6dMMfFRZW8RnCgh2TYoIHkbVVsWt31tXVldfW1YqSkhJtHDp0SFRXV4uGhoaTv3/jzTQ//4DT/B5A5AySOKElhxHJEp5HtjXPy3M5bAaHhe8pLS3NO3Kkevjw4cOCtdmH9Wtram7u3p2bjrNwprP/25kyweJr4tbnl5WVnaytrRlkQbW4AsJcUVEhqqqqbPXSfa+nvLk/cOET9bzd4204CYpEIpXUGvIHrwIUzxOW+fn7S2CV9Y3rcs1+EpwGBrXKzc37mHA2S3ZTELQcMIBxMMBijpsY7/keT2L0lh07/qiYARBhpqQSAHi+srLyY8DjeeM6jteKcUKsoKDgbUCYhZUpCKVA5ELC+pfzYER6646rTdmQ7/EqRhLPbAoQkhSWyCO8agxNR8PVPSzDEgyELVl6gDA1YwFQpiAUWnti8++odsCQA54wgwGEIeBhFENIVkC6YlV5nmfl7/IArt54OAPgFoQCo5ghwfAmYQMz7gwCDMx44nkAksio0vKnf/0OouJOlZR9LplQP9Jnu6JQJ5BcT5lRIeI4656XxhcVFeWT7CS9N9Ua27wDIR/gIZjR6oe/5QgSSKjgdUcjXd3DosofqWQ51AxPPa871W7PpECoRQDD5mHhT5YS9yQthmEgXjYDgSoR8xQ2ZBwlwyGTBTBpJhQIfZZhxntYcgYpRBIBYwQBMHID2SbZCRtnxUtf1+5pd/dTYsJxcbyJFCKJMKMKmVIqFA7ZptWYiucd9/UpCBZXUog0IpHFxSXpGI9MU0TV946GTOX+P6oef05FrqAFAAAAAElFTkSuQmCC" width = "49" height = "49" alt = "" style = "vertical-align: baseline; width: 49px; height: 49px;"></img></div><div  class = 'S2'><span>3.在 3D 场景中，单击导入的文件以将其选中</span></div><div  class = 'S2'><span>4.在</span><span style=' font-weight: bold;'>属性</span><span>窗格中，单击</span><span style=' font-weight: bold;'>设置自定义</span><span style=' font-weight: bold;'> </span><span>投影或从下拉菜单中选择适当的</span><span style=' font-weight: bold;'>投影模式</span><span>以正确定位纬度和经度 RoadRunner场景中的ASAM OpenDRIVE</span><span>数据。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>“设置自定义投影</span><span>”选项将打开一个对话框，以 配置</span><span style=' font-weight: bold;'>横断墨卡托</span><span>投影。此选项是 当导入的 ASAM OpenDRIVE 数据的投影详细信息未知时，建议使用。或者，您可以从下拉菜单中选择这些可用的</span><span style=' font-weight: bold;'>投影模式</span><span>之一。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>投影模式及其描述</span></div><div  class = 'S2'><span style=' font-weight: bold;'>无投影：</span><span>此投影模式直接从 ASAM OpenDRIVE 数据中提取点的坐标，并将其放置在 RoadRunner 场景中。不建议使用此模式，但可用于 导入合成场景（即不基于任何场景的场景 真实世界的参考）。</span><span style=' font-family: monospace;'>XY</span></div><div  class = 'S2'><span style=' font-weight: bold;'>仅翻译：</span><span>此投影模式导入 ASAM OpenDRIVE 数据，以便导入数据中的 和 、 位置定位于 RoadRunner 场景中的对应和位置。ASAM OpenDRIVE不受影响，因此曲率 信息被保留。建议将此投影模式用于 需要准确保存信息的合成场景。也推荐 对于真实场景，其中 ASAM OpenDRIVE 数据的投影细节未知，但可以确定 和 的位置。</span><span style=' font-family: monospace;'>latitudelongitude00latitudelongitude&lt;geometry&gt;&lt;geometry&gt;latitudelongitude00</span></div><div  class = 'S2'><span style=' font-weight: bold;'>全投影：</span><span>在此投影模式下，导入的任意点的 ASAM OpenDRIVE数据对应于RoadRunner场景中同一点的和。ASAM OpenDRIVE数据被重新投影为存在于RoadRunner的本地</span><span style=' font-weight: bold;'>Tranverse Ricator</span><span>投影中。强烈建议将这种投影模式用于场景 基于真实世界的数据或 ASAM OpenDRIVE 文件，其中包含投影信息。合成不需要 场景。</span><span style=' font-family: monospace;'>latitudelongitudelatitudelongitudeheader</span></div><div  class = 'S2'><span>5.在左侧工具栏中，单击</span><span style=' font-weight: bold;'>构建场景</span><span>按钮。</span></div><div  class = 'S2'><img class = "imageNode" src = "data:image/png;base64,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" width = "50" height = "51" alt = "" style = "vertical-align: baseline; width: 50px; height: 51px;"></img></div><div  class = 'S2'><span>您可以在导入 ASAM OpenDRIVE 中指定要从导入的数据构建的内容 对话框，从以下选项：</span></div><ul  class = 'S4'><li  class = 'S5'><span style=' font-family: monospace;'>All Data</span><span>— 构建所有导入的数据。</span></li><li  class = 'S5'><span style=' font-family: monospace;'>Selected Data</span><span>— 构建选定的数据。</span><span>要选择数据，可以在场景编辑画布中单击并拖动到 在感兴趣的矩形区域中选择多个链接。你也可以 按住</span><span> </span><span style=' font-weight: bold;'>Shift</span><span> </span><span>并单击其他链接以将其添加到 选择。</span></li></ul><div  class = 'S2'><span>6.在“导入 ASAM OpenDRIVE”对话框中，选择导入选项，例如对象、信号、 以及要在场景中构建的标记。</span></div><div  class = 'S2'><span>OpenDRIVE 导入程序使用配置 XML 文件将 ASAM OpenDRIVE 和条目映射到</span><span> </span><span>RoadRunner</span><span> </span><span>资产。此配置文件还用于定义相关性 在导出过程中。有关更多详细信息，请参阅</span><a href = "./convert_asset_data_between_roadrunner_and_asam_opendrive.html"><span style=' font-weight: bold;'>在RoadRunner和ASAM OpenDRIVE之间转换资产数据</span></a><span>。</span><span style=' font-family: monospace;'>&lt;object&gt;</span><span style=' font-family: monospace;'>&lt;signal&gt;</span><span style=' font-family: monospace;'>&lt;marking&gt;</span></div><div  class = 'S2'><span>下表显示了您可以选择的导入选项。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>选择                 描述</span></div><div  class = 'S2'><span style=' font-weight: bold;'>导入信号         </span><span>选择此选项可将所有条目映射到信号或标志。</span><span style=' font-family: monospace;'>&lt;signal&gt;</span></div><div  class = 'S2'><span style=' font-weight: bold;'>导入道具         </span><span>选择此选项可将所有条目映射到道具或标记。</span><span style=' font-family: monospace;'>&lt;object&gt;</span></div><div  class = 'S2'><span style=' font-weight: bold;'>相对于方向使用 h偏移       </span><span>选择此属性可将条目的（标题偏移量）值导入为相对于 的值，这是 的方向 信号适用的道路的行程。默认情况下，标题 偏移量相对于道路的航向，无论其 行进方向</span><span style=' font-family: monospace;'>&lt;hOffset&gt;&lt;signal&gt;&lt;orientation&gt;</span></div><div  class = 'S2'><span>7.单击</span><span style=' font-weight: bold;'>导入</span><span>。“导入 ASAM OpenDRIVE 结果”对话框 显示导入过程中发生的任何警告和错误。关闭此对话框并 通过单击其他工具检查导入的场景。</span></div><h3  class = 'S3'><span style=' font-weight: bold;'>显式车道方向优先级</span></h3><div  class = 'S2'><span>本节说明导入时如何设置车道方向的优先级 ASAM OpenDRIVE文件到</span><span>RoadRunner</span><span>。按优先级降序排列：</span></div><ol  class = 'S4'><li  class = 'S5'><span>如果 ASAM OpenDRIVE 行车道的属性设置为 、 或 ，则将其用作该行进方向。 车道。请注意，travelDir 是一个自定义的 RoadRunner 属性，不太可能 在第三方供应商的 OpenDRIVE 文件中找到。</span><span style=' font-family: monospace;'>travelDir</span><span style=' font-family: monospace;'>forward</span><span style=' font-family: monospace;'>backward</span><span style=' font-family: monospace;'>bidirectional</span></li><li  class = 'S5'><span>如果 ASAM OpenDRIVE 道路的属性设置为（右手交通）或（左手交通），请设置车道的行驶方向 适合该流量规则（例如 将指示 左车道向后，右车道向前）。</span><span style=' font-family: monospace;'>rule</span><span style=' font-family: monospace;'>RHT</span><span style=' font-family: monospace;'>LHT</span><span style=' font-family: monospace;'>RHT</span></li><li  class = 'S5'><span>否则，将车道方向设置为 。</span><span style=' font-family: monospace;'>undirected</span></li></ol><h3  class = 'S3'><span style=' font-weight: bold;'>局限性</span></h3><div  class = 'S2'><span style=' font-weight: bold;'>常规</span></div><ul  class = 'S4'><li  class = 'S5'><span>如果在ASAM OpenDRIVE中为元素定义了no，</span><span>RoadRunner</span><span>会将导入的标志或信号直接放在路面上。</span><span style=' font-family: monospace;'>zOffset</span><span style=' font-family: monospace;'>&lt;signal&gt;</span></li><li  class = 'S5'><span>RoadRunner</span><span> </span><span>道路规划几何图形要求分段（线、弧形、布状或 参数立方体）是连续的。在导入过程中，</span><span>RoadRunner</span><span> </span><span>可能会将一些 ASAM OpenDRIVE 数据定义为一系列段，这些段是 映射到连续曲线。</span><span style=' font-family: monospace;'>&lt;line&gt;</span></li><li  class = 'S5'><span>在导入过程中，</span><span>RoadRunner</span><span> </span><span>会将 ASAM OpenDRIVE 几何类型转换为 .</span><span style=' font-family: monospace;'>&lt;poly3&gt;</span><span style=' font-family: monospace;'>&lt;paramPoly3&gt;</span></li><li  class = 'S5'><span>RoadRunner</span><span> </span><span>道路无法连接到自身。导入会忽略将道路连接到自身的 ASAM OpenDRIVE 连接。</span></li></ul><div  class = 'S2'><span style=' font-weight: bold;'>特定于 OpenDRIVE 1.5 / ASAM</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>OpenDRIVE</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>1.6/</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>ASAM OpenDRIVE</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>1.7</span></div><ul  class = 'S4'><li  class = 'S5'><span>RoadRunner</span><span> </span><span>不会导入指定的虚拟交汇点和虚拟连接 在ASAM OpenDRIVE中。</span></li><li  class = 'S5'><span>如果串行连接的道路段在ASAM OpenDRIVE中重叠，则</span><span>RoadRunner</span><span>将忽略道路的重叠路段，并将道路导入为： 不相交的道路。</span></li><li  class = 'S5'><span>RoadRunner</span><span> </span><span>忽略为 ASAM OpenDRIVE 中的条目指定的横向偏移量。导入的道路标记遵循车道边界，就好像未指定一样。</span><span style=' font-family: monospace;'>&lt;sway&gt;</span><span style=' font-family: monospace;'>roadMark</span><span style=' font-family: monospace;'>&lt;sway&gt;</span></li></ul><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 导入 ASAM OpenDRIVE 文件
+% 
+% 
+% RoadRunner 可以可视化和导入 OpenDRIVE 1.4、OpenDRIVE 1.5、ASAM OpenDRIVE 1.6 和 ASAM 
+% OpenDRIVE 1.7 数据，在导入过程中将数据转换为内部道路格式。这 ASAM OpenDRIVE数据在导入前可视化。导入选项旨在启用 编辑 ASAM 
+% OpenDRIVE 文件。
+% *导入 ASAM OpenDRIVE 文件并构建场景*
+% 1.在RoadRunner中，将ASAM OpenDRIVE文件添加到*库浏览器中*的文件夹中。
+% 
+% 2.将 ASAM OpenDRIVE 文件从*库浏览器*拖到场景中。这 操作切换到 <./opendriveviewertool.mlx *OpenDRIVE 
+% 查看器工具*>。
+% 
+% 
+% 
+% 3.在 3D 场景中，单击导入的文件以将其选中
+% 
+% 4.在*属性*窗格中，单击*设置自定义 投影或从下拉菜单中选择适当的*投影模式*以正确定位纬度和经度 RoadRunner场景中的ASAM OpenDRIVE数据。
+% 
+% *“设置自定义投影*”选项将打开一个对话框，以 配置*横断墨卡托*投影。此选项是 当导入的 ASAM OpenDRIVE 数据的投影详细信息未知时，建议使用。或者，您可以从下拉菜单中选择这些可用的*投影模式*之一。
+% 
+% *投影模式及其描述*
+% 
+% *无投影：*此投影模式直接从 ASAM OpenDRIVE 数据中提取点的坐标，并将其放置在 RoadRunner 场景中。不建议使用此模式，但可用于 
+% 导入合成场景（即不基于任何场景的场景 真实世界的参考）。|XY|
+% 
+% *仅翻译：*此投影模式导入 ASAM OpenDRIVE 数据，以便导入数据中的 和 、 位置定位于 RoadRunner 场景中的对应和位置。ASAM 
+% OpenDRIVE不受影响，因此曲率 信息被保留。建议将此投影模式用于 需要准确保存信息的合成场景。也推荐 对于真实场景，其中 ASAM OpenDRIVE 
+% 数据的投影细节未知，但可以确定 和 的位置。|latitudelongitude00latitudelongitude<geometry><geometry>latitudelongitude00|
+% 
+% *全投影：*在此投影模式下，导入的任意点的 ASAM OpenDRIVE数据对应于RoadRunner场景中同一点的和。ASAM OpenDRIVE数据被重新投影为存在于RoadRunner的本地*Tranverse 
+% Ricator*投影中。强烈建议将这种投影模式用于场景 基于真实世界的数据或 ASAM OpenDRIVE 文件，其中包含投影信息。合成不需要 场景。|latitudelongitudelatitudelongitudeheader|
+% 
+% 5.在左侧工具栏中，单击*构建场景*按钮。
+% 
+% 
+% 
+% 您可以在导入 ASAM OpenDRIVE 中指定要从导入的数据构建的内容 对话框，从以下选项：
+%% 
+% * |All Data|— 构建所有导入的数据。
+% * |Selected Data|— 构建选定的数据。要选择数据，可以在场景编辑画布中单击并拖动到 在感兴趣的矩形区域中选择多个链接。你也可以 按住 
+% *Shift* 并单击其他链接以将其添加到 选择。
+%% 
+% 6.在“导入 ASAM OpenDRIVE”对话框中，选择导入选项，例如对象、信号、 以及要在场景中构建的标记。
+% 
+% OpenDRIVE 导入程序使用配置 XML 文件将 ASAM OpenDRIVE 和条目映射到 RoadRunner 资产。此配置文件还用于定义相关性 
+% 在导出过程中。有关更多详细信息，请参阅<./convert_asset_data_between_roadrunner_and_asam_opendrive.mlx 
+% *在RoadRunner和ASAM OpenDRIVE之间转换资产数据*>。|<object><signal><marking>|
+% 
+% 下表显示了您可以选择的导入选项。
+% 
+% *选择                 描述*
+% 
+% *导入信号*         选择此选项可将所有条目映射到信号或标志。|<signal>|
+% 
+% *导入道具*         选择此选项可将所有条目映射到道具或标记。|<object>|
+% 
+% *相对于方向使用 h偏移*       选择此属性可将条目的（标题偏移量）值导入为相对于 的值，这是 的方向 信号适用的道路的行程。默认情况下，标题 
+% 偏移量相对于道路的航向，无论其 行进方向|<hOffset><signal><orientation>|
+% 
+% 7.单击*导入*。“导入 ASAM OpenDRIVE 结果”对话框 显示导入过程中发生的任何警告和错误。关闭此对话框并 通过单击其他工具检查导入的场景。
+% *显式车道方向优先级*
+% 本节说明导入时如何设置车道方向的优先级 ASAM OpenDRIVE文件到RoadRunner。按优先级降序排列：
+%% 
+% # 如果 ASAM OpenDRIVE 行车道的属性设置为 、 或 ，则将其用作该行进方向。 车道。请注意，travelDir 是一个自定义的 RoadRunner 
+% 属性，不太可能 在第三方供应商的 OpenDRIVE 文件中找到。|travelDirforwardbackwardbidirectional|
+% # 如果 ASAM OpenDRIVE 道路的属性设置为（右手交通）或（左手交通），请设置车道的行驶方向 适合该流量规则（例如 将指示 左车道向后，右车道向前）。|ruleRHTLHTRHT|
+% # 否则，将车道方向设置为 。|undirected|
+% *局限性*
+% *常规*
+%% 
+% * 如果在ASAM OpenDRIVE中为元素定义了no，RoadRunner会将导入的标志或信号直接放在路面上。|zOffset<signal>|
+% * RoadRunner 道路规划几何图形要求分段（线、弧形、布状或 参数立方体）是连续的。在导入过程中，RoadRunner 可能会将一些 ASAM 
+% OpenDRIVE 数据定义为一系列段，这些段是 映射到连续曲线。|<line>|
+% * 在导入过程中，RoadRunner 会将 ASAM OpenDRIVE 几何类型转换为 .|<poly3><paramPoly3>|
+% * RoadRunner 道路无法连接到自身。导入会忽略将道路连接到自身的 ASAM OpenDRIVE 连接。
+%% 
+% *特定于 OpenDRIVE 1.5 / ASAM OpenDRIVE 1.6/ ASAM OpenDRIVE 1.7*
+%% 
+% * RoadRunner 不会导入指定的虚拟交汇点和虚拟连接 在ASAM OpenDRIVE中。
+% * 如果串行连接的道路段在ASAM OpenDRIVE中重叠，则RoadRunner将忽略道路的重叠路段，并将道路导入为： 不相交的道路。
+% * RoadRunner 忽略为 ASAM OpenDRIVE 中的条目指定的横向偏移量。导入的道路标记遵循车道边界，就好像未指定一样。|<sway>roadMark<sway>|
+%% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

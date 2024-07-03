@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>下载 GIS 数据以用于 RoadRunner</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S4 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>下载 GIS 数据以用于</span><span> </span><span>RoadRunner</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>基于真实位置设计场景时，可以使用导入的地理 信息系统 （GIS） 数据作为视觉参考。将数据导入</span><span>RoadRunner</span><span>的过程与导入任何其他数据的过程相同，无论数据位于何处 获得。</span></div><div  class = 'S2'><span>RoadRunner</span><span>支持几种不同的格式。有关每个支持的格式列表 GIS 数据类型，请参阅 GIS 资产文档：</span></div><ul  class = 'S3'><li  class = 'S4'><a href = "./elevationmapassets.html"><span style=' font-weight: bold;'>高程图 资产</span></a></li><li  class = 'S4'><a href = "./aerialimageassets.html"><span style=' font-weight: bold;'>航拍图像 资产</span></a></li><li  class = 'S4'><a href = "./vectordataassets.html"><span style=' font-weight: bold;'>矢量数据 资产</span></a></li><li  class = 'S4'><a href = "./pointcloudassets.html"><span style=' font-weight: bold;'>点云 资产</span></a></li></ul><div  class = 'S2'><span>最常见的文件格式是：</span></div><ul  class = 'S3'><li  class = 'S4'><span>栅格数据（卫星影像和高程），例如 GeoTIFF 和 JPEG 2000</span></li><li  class = 'S4'><span>点云数据，例如 LAZ 和 LAS 格式的激光雷达数据</span></li></ul><div  class = 'S2'><span style=' font-weight: bold;'>选择用于下载 GIS 数据的 USGS 界面</span></div><div  class = 'S2'><span>美国地质调查局 （USGS） 为大部分 美国。覆盖范围和质量因数据类型和 位置。</span></div><div  class = 'S2'><span>下表显示了可从中访问 GIS 数据的 USGS 接口。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>接口链接                                                                                   接口名称</span></div><div  class = 'S2'><span style=' font-family: monospace;'>https://apps.nationalmap.gov/downloader/#/      </span><span>国家地图（首选）</span></div><div  class = 'S2'><span style=' font-family: monospace;'>https://apps.nationalmap.gov/viewer/            </span><span>国家地图 - 高级查看器</span></div><div  class = 'S2'><span style=' font-family: monospace;'>https://earthexplorer.usgs.gov/                 </span><span>地球探索者</span><span style=' font-family: monospace;'>       </span></div><div  class = 'S2'><span>每个 USGS 界面都有不同的用户界面，用于选择位置和数据 集合，可以包含不同的数据集。查找特定项目的数据时，最好 做法是检查所有 USGS 接口。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>下载地理信息系统数据</span></div><div  class = 'S2'><span>此示例演示如何从国家地图下载数据。</span></div><div  class = 'S2'><span>1.使用地图界面查找您感兴趣的区域</span></div><div  class = 'S2'><span>2.在</span><span style=' font-weight: bold;'>“数据集</span><span>”窗格中，选择一个或多个数据源。 选择数据源后，可以单击“</span><span style=' font-weight: bold;'>显示” 显示</span><span>该数据源覆盖范围的可用性。这 表显示了用于每种 GIS 类型的建议数据源数据。</span></div><div  class = 'S2'><span>3.单击</span><span style=' font-weight: bold;'>搜索产品</span><span>，然后在返回的结果中， 选择结果中的下载链接以下载该数据。</span></div><div  class = 'S2'><span>4.将下载的数据拖到</span><span> </span><span>RoadRunner</span><span> </span><span style=' font-weight: bold;'>库浏览器中</span><span>，以便在创建时用作视觉参考 场景。某些数据可能需要下载多个切片才能覆盖您的区域 利息。有关更多详细信息，请参阅</span><a href = "./create_roads_around_imported_gis_assets.html"><span style=' font-weight: bold;'>在导入的 GIS 资产周围创建道路</span></a><span>。</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 下载 GIS 数据以用于 RoadRunner
+% 
+% 
+% 基于真实位置设计场景时，可以使用导入的地理 信息系统 （GIS） 数据作为视觉参考。将数据导入RoadRunner的过程与导入任何其他数据的过程相同，无论数据位于何处 
+% 获得。
+% 
+% RoadRunner支持几种不同的格式。有关每个支持的格式列表 GIS 数据类型，请参阅 GIS 资产文档：
+%% 
+% * <./elevationmapassets.mlx *高程图 资产*>
+% * <./aerialimageassets.mlx *航拍图像 资产*>
+% * <./vectordataassets.mlx *矢量数据 资产*>
+% * <./pointcloudassets.mlx *点云 资产*>
+%% 
+% 最常见的文件格式是：
+%% 
+% * 栅格数据（卫星影像和高程），例如 GeoTIFF 和 JPEG 2000
+% * 点云数据，例如 LAZ 和 LAS 格式的激光雷达数据
+%% 
+% *选择用于下载 GIS 数据的 USGS 界面*
+% 
+% 美国地质调查局 （USGS） 为大部分 美国。覆盖范围和质量因数据类型和 位置。
+% 
+% 下表显示了可从中访问 GIS 数据的 USGS 接口。
+% 
+% *接口链接                                                                                   
+% 接口名称*
+% 
+% |https://apps.nationalmap.gov/downloader/#/|      国家地图（首选）
+% 
+% |https://apps.nationalmap.gov/viewer/|            国家地图 - 高级查看器
+% 
+% |https://earthexplorer.usgs.gov/|                 地球探索者       
+% 
+% 每个 USGS 界面都有不同的用户界面，用于选择位置和数据 集合，可以包含不同的数据集。查找特定项目的数据时，最好 做法是检查所有 USGS 接口。
+% 
+% *下载地理信息系统数据*
+% 
+% 此示例演示如何从国家地图下载数据。
+% 
+% 1.使用地图界面查找您感兴趣的区域
+% 
+% 2.在*“数据集*”窗格中，选择一个或多个数据源。 选择数据源后，可以单击“*显示” 显示*该数据源覆盖范围的可用性。这 表显示了用于每种 GIS 
+% 类型的建议数据源数据。
+% 
+% 3.单击*搜索产品*，然后在返回的结果中， 选择结果中的下载链接以下载该数据。
+% 
+% 4.将下载的数据拖到 RoadRunner *库浏览器中*，以便在创建时用作视觉参考 场景。某些数据可能需要下载多个切片才能覆盖您的区域 利息。有关更多详细信息，请参阅<./create_roads_around_imported_gis_assets.mlx 
+% *在导入的 GIS 资产周围创建道路*>。
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

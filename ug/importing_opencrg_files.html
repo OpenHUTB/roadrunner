@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>导入 ASAM OpenCRG 文件</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>导入</span><span> </span><span>ASAM OpenCRG</span><span> </span><span>文件</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>ASAM OpenCRG 是一种开放标准，使您能够使用 弯曲规则网格 （CRG） 格式。您可以将 CRG 数据与指定的道路网络数据链接 使用 ASAM OpenDRIVE 文件。使用 RoadRunner，您可以从 ASAM OpenCRG V1.2.0 文件导入数据，将其分配给场景中的路段，并可视化道路 使用颜色图的表面变化。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>注意</span></div><div  class = 'S2'><span>您无法使用</span><span> </span><span>RoadRunner</span><span> </span><span>编辑 ASAM OpenCRG 文件中的数据。</span></div><h3  class = 'S3'><span style=' font-weight: bold;'>导入</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>ASAM OpenCRG</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>文件</span></h3><div  class = 'S2'><span>您可以导入带有或不带有 ASAM OpenDRIVE 文件的 ASAM OpenCRG 文件。当您使用 ASAM OpenDRIVE 文件导入 ASAM OpenCRG 文件时，</span><span>RoadRunner</span><span> </span><span>可以通过将 CRG 数据与路网数据集成来构建场景 由 ASAM OpenDRIVE 文件指定。或者，您可以独立导入 ASAM OpenCRG 文件，并将 CRG 数据分配给所需的路段 一个场景。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>导入 ASAM OpenCRG 文件与 ASAM OpenDRIVE 文件</span></div><div  class = 'S2'><span>按照以下步骤构建场景并通过导入 CRG 数据来可视化 引用一个或多个ASAM OpenCRG文件的ASAM OpenDRIVE文件。</span></div><div  class = 'S2'><span>1.在</span><span>RoadRunner</span><span>中，将ASAM OpenDRIVE文件和所有链接的ASAM OpenCRG文件添加到库中的文件夹中</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>浏览器</span><span>。</span></div><div  class = 'S2'><span>2.将 ASAM OpenDRIVE 文件从</span><span style=' font-weight: bold;'>库浏览器</span><span>拖到 现场。此操作将切换到</span><span> </span><a href = "./opendriveviewertool.html"><span style=' font-weight: bold;'>OpenDRIVE 查看器工具</span></a><span>。</span></div><div  class = 'S2'><img class = "imageNode" src = "data:image/png;base64,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" width = "49" height = "49" alt = "" style = "vertical-align: baseline; width: 49px; height: 49px;"></img></div><div  class = 'S2'><span>3.在 3D 场景中，单击导入的 ASAM OpenDRIVE 文件以将其选中。</span></div><div  class = 'S2'><span>4.在场景编辑画布左侧的工具条上，单击</span><span style=' font-weight: bold;'>构建场景</span><span>按钮。</span></div><div  class = 'S2'><img class = "imageNode" src = "data:image/png;base64,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" width = "50" height = "51" alt = "" style = "vertical-align: baseline; width: 50px; height: 51px;"></img></div><div  class = 'S2'><span>5.在“导入 ASAM OpenDRIVE”对话框中选择所需的选项，然后单击</span><span style=' font-weight: bold;'>“导入</span><span>”。</span></div><div  class = 'S2'><span>6.要可视化 CRG 数据，请单击</span><span style=' font-weight: bold;'>道路 CRG 工具</span><span>按钮， 选择所需的道路，然后选择所需的道路跨度。</span><span>RoadRunner</span><span> </span><span>使用叠加在道路上的色彩图显示 CRG 数据。</span><span> </span><span style=' font-weight: bold;'>属性</span><span>窗格显示链接的 CRG 文件和 CRG 数据的属性，如导入的 ASAM OpenDRIVE 文件中指定的那样。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>独立导入 ASAM OpenCRG 文件</span></div><div  class = 'S2'><span>按照以下步骤通过导入将 CRG 数据分配给 3D 场景中的路段 一个 ASAM OpenCRG 文件。</span></div><div  class = 'S2'><span>1.在</span><span>RoadRunner</span><span>中，将ASAM OpenCRG文件添加到库中的文件夹中</span><span style=' font-weight: bold;'> </span><span style=' font-weight: bold;'>浏览器</span><span>。</span></div><div  class = 'S2'><span>2.单击工具栏上</span><span style=' font-weight: bold;'>的道路 CRG 工具</span><span>按钮。</span></div><div  class = 'S2'><img class = "imageNode" src = "data:image/png;base64,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" width = "49" height = "49" alt = "" style = "vertical-align: baseline; width: 49px; height: 49px;"></img></div><div  class = 'S2'><span>3.选择要为其定义路面数据的道路。</span></div><div  class = 'S2'><span>4.要定义路面数据的范围，请右键单击 要插入跨度节点。</span></div><div  class = 'S2'><span>5.选择所需的道路跨度，然后将 ASAM OpenCRG 文件从</span><span style=' font-weight: bold;'>库浏览器</span><span>拖动到</span><span style=' font-weight: bold;'>属性</span><span>窗格中的</span><span> </span><span style=' font-weight: bold;'>CRG 文件</span><span>资产持有者中。场景编辑画布显示 使用叠加在道路上的色彩图的 CRG 数据。</span></div><div  class = 'S2'><span>您可以重复这些步骤以分配来自相同或不同 CRG 的数据 ASAM OpenCRG 文件到场景中的其他路段。</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 导入 ASAM OpenCRG 文件
+% 
+% 
+% ASAM OpenCRG 是一种开放标准，使您能够使用 弯曲规则网格 （CRG） 格式。您可以将 CRG 数据与指定的道路网络数据链接 使用 ASAM 
+% OpenDRIVE 文件。使用 RoadRunner，您可以从 ASAM OpenCRG V1.2.0 文件导入数据，将其分配给场景中的路段，并可视化道路 
+% 使用颜色图的表面变化。
+% 
+% *注意*
+% 
+% 您无法使用 RoadRunner 编辑 ASAM OpenCRG 文件中的数据。
+% *导入 ASAM OpenCRG 文件*
+% 您可以导入带有或不带有 ASAM OpenDRIVE 文件的 ASAM OpenCRG 文件。当您使用 ASAM OpenDRIVE 文件导入 ASAM 
+% OpenCRG 文件时，RoadRunner 可以通过将 CRG 数据与路网数据集成来构建场景 由 ASAM OpenDRIVE 文件指定。或者，您可以独立导入 
+% ASAM OpenCRG 文件，并将 CRG 数据分配给所需的路段 一个场景。
+% 
+% *导入 ASAM OpenCRG 文件与 ASAM OpenDRIVE 文件*
+% 
+% 按照以下步骤构建场景并通过导入 CRG 数据来可视化 引用一个或多个ASAM OpenCRG文件的ASAM OpenDRIVE文件。
+% 
+% 1.在RoadRunner中，将ASAM OpenDRIVE文件和所有链接的ASAM OpenCRG文件添加到库中的文件夹中 浏览器*。
+% 
+% 2.将 ASAM OpenDRIVE 文件从*库浏览器*拖到 现场。此操作将切换到 <./opendriveviewertool.mlx *OpenDRIVE 
+% 查看器工具*>。
+% 
+% 
+% 
+% 3.在 3D 场景中，单击导入的 ASAM OpenDRIVE 文件以将其选中。
+% 
+% 4.在场景编辑画布左侧的工具条上，单击*构建场景*按钮。
+% 
+% 
+% 
+% 5.在“导入 ASAM OpenDRIVE”对话框中选择所需的选项，然后单击*“导入*”。
+% 
+% 6.要可视化 CRG 数据，请单击*道路 CRG 工具*按钮， 选择所需的道路，然后选择所需的道路跨度。RoadRunner 使用叠加在道路上的色彩图显示 
+% CRG 数据。 *属性*窗格显示链接的 CRG 文件和 CRG 数据的属性，如导入的 ASAM OpenDRIVE 文件中指定的那样。
+% 
+% *独立导入 ASAM OpenCRG 文件*
+% 
+% 按照以下步骤通过导入将 CRG 数据分配给 3D 场景中的路段 一个 ASAM OpenCRG 文件。
+% 
+% 1.在RoadRunner中，将ASAM OpenCRG文件添加到库中的文件夹中 浏览器*。
+% 
+% 2.单击工具栏上*的道路 CRG 工具*按钮。
+% 
+% 
+% 
+% 3.选择要为其定义路面数据的道路。
+% 
+% 4.要定义路面数据的范围，请右键单击 要插入跨度节点。
+% 
+% 5.选择所需的道路跨度，然后将 ASAM OpenCRG 文件从*库浏览器*拖动到*属性*窗格中的 *CRG 文件*资产持有者中。场景编辑画布显示 
+% 使用叠加在道路上的色彩图的 CRG 数据。
+% 
+% 您可以重复这些步骤以分配来自相同或不同 CRG 的数据 ASAM OpenCRG 文件到场景中的其他路段。
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>使用 MATLAB 导出多个场景</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S4 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S5 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>使用 MATLAB 导出多个场景</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>此示例演示如何将场景从 RoadRunner 项目批量导出为 RoadRunner 支持的文件格式之一。在此示例中，您将使用 MATLAB® 函数将场景导出为 ASAM OpenDRIVE® 文件格式。</span></div><div  class = 'S2'><span>若要运行此示例，必须：</span></div><ul  class = 'S3'><li  class = 'S4'><span>拥有自动驾驶工具箱®许可证。</span></li><li  class = 'S4'><span>拥有RoadRunner®许可证并安装产品。</span></li><li  class = 'S4'><span>已创建 RoadRunner 项目文件夹。</span></li></ul><h2  class = 'S5'><span style=' font-weight: bold;'>以编程方式启动 RoadRunner</span></h2><div  class = 'S2'><span>要使用 MATLAB 函数以编程方式控制 RoadRunner，请使用该对象。默认情况下，从您正在使用的平台（Windows® 或 Linux®）的默认安装文件夹中打开 RoadRunner。以下是按平台划分的默认安装位置：</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>roadrunner</span></div><ul  class = 'S3'><li  class = 'S4'><span>Windows – C：\Program Files\RoadRunner</span><span> </span><span style=' font-style: italic;'>R20NNx</span><span>\bin\win64</span></li><li  class = 'S4'><span>Linux， Ubuntu® – /usr/local/RoadRunner_</span><span style=' font-style: italic;'>R20NNx</span><span>/bin/glnxa64</span></li></ul><div  class = 'S2'><span style=' font-style: italic; font-family: monospace;'>R20NNx</span><span> </span><span>是您正在使用的版本对应的 MATLAB 版本。</span></div><div  class = 'S2'><span>如果您的 RoadRunner 安装位置与默认位置不同，请使用 MATLAB API 自定义 RoadRunner 安装文件夹的默认值。</span><span style=' font-family: monospace;'>settings</span></div><h2  class = 'S5'><span style=' font-weight: bold;'>将场景从RoadRunner导出到ASAM OpenDRIVE</span></h2><div  class = 'S2'><span>使用 MATLAB 将场景从 RoadRunner 项目导出为 ASAM OpenDRIVE 格式。</span></div><div  class = 'S2'><span>通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S2'><span>指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。</span><span style=' font-family: monospace;'>C:\RR\MyProject</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>rrApp,</span></div><div  class = 'S2'><span style=' font-family: monospace;'>projectFolder = </span><span style=' font-family: monospace;'>"C:\RR\MyProject"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder,InstallationFolder=</span><span style=' font-family: monospace;'>"C:\Program Files\RoadRunner R2022b\bin\win64"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S2'><span>通过将函数与要作为输入参数打开的对象和 RoadRunner 场景一起使用，在项目中打开场景。此示例使用的场景，该场景是 RoadRunner 项目中默认包含的场景之一，位于项目的文件夹中。</span><span style=' font-family: monospace;'>openSceneroadrunnerFourWaySignal.rrsceneandScenes</span></div><div  class = 'S2'><span style=' font-family: monospace;'>sceneName = </span><span style=' font-family: monospace;'>"FourWaySignal.rrscene"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>openScene(rrApp,sceneName);</span></div><div  class = 'S2'><span>通过创建对象来设置导出选项，以启用从文件导出信号和对象。</span><span style=' font-family: monospace;'>openDriveExportOptions</span></div><div  class = 'S2'><span style=' font-family: monospace;'>options = openDriveExportOptions(OpenDriveVersion=1.5,ExportSignals=true,ExportObjects=true);</span></div><div  class = 'S2'><span>使用该函数将场景导出到 ASAM OpenDRIVE。指定对象、要将场景导出到的文件的名称、导出格式和导出选项作为函数的输入参数。</span><span style=' font-family: monospace;'>exportSceneroadrunnerexportScene</span></div><div  class = 'S2'><span style=' font-family: monospace;'>filename = </span><span style=' font-family: monospace;'>"FourWaySignal.xodr"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>formatname = </span><span style=' font-family: monospace;'>"OpenDRIVE"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>exportScene(rrApp,filename,formatname,options);</span></div><h2  class = 'S5'><span style=' font-weight: bold;'>将多个场景从RoadRunner导出为ASAM OpenDRIVE格式</span></h2><div  class = 'S2'><span>使用 MATLAB 将 RoadRunner 项目中的多个场景导出为 ASAM OpenDRIVE® 格式。</span></div><div  class = 'S2'><span>通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S2'><span>指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。</span><span style=' font-family: monospace;'>C:\RR\MyProject</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>rrApp,</span></div><div  class = 'S2'><span style=' font-family: monospace;'>demoProj = fullfile(</span><span style=' font-family: monospace;'>'C:'</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>'DemoProject'</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S2'><span style=' font-family: monospace;'>rrApp = roadrunner(demoProj,InstallationFolder=</span><span style=' font-family: monospace;'>"C:\Program Files\RoadRunner R2022b\bin\win64"</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S2'><span>指定要导出的场景文件的路径。您必须指定 RoadRunner 项目中文件夹的路径，其中包含该项目中的所有场景。</span><span style=' font-family: monospace;'>Scenes</span></div><div  class = 'S2'><span style=' font-family: monospace;'>sceneFiles = dir(fullfile(demoProj,</span><span style=' font-family: monospace;'>'Scenes'</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>'*.rrscene'</span><span style=' font-family: monospace;'>));</span></div><div  class = 'S2'><span style=' font-family: monospace;'>scenes = {sceneFiles.name};</span></div><div  class = 'S2'><span>指定导出文件夹的路径。这是RoadRunner将所有场景文件导出到的文件夹。循环访问所有场景文件，使用该函数打开每个场景，然后调用该函数将打开的场景导出为 ASAM OpenDRIVE 格式。</span><span style=' font-family: monospace;'>openSceneexportScene</span></div><div  class = 'S2'><span style=' font-family: monospace;'>exportFolder = fullfile(</span><span style=' font-family: monospace;'>'C:'</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>'OpenDRIVE'</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S2'><span style=' font-family: monospace;'></span><span style=' font-family: monospace;'>for</span><span style=' font-family: monospace;'> sndx = 1:numel(scenes)</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    openScene(rrApp,scenes{sndx});</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    [~,fileName] = fileparts(scenes{sndx});</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    exportFilePath = [fullfile(exportFolder,fileName) </span><span style=' font-family: monospace;'>'.xodr'</span><span style=' font-family: monospace;'>];</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    exportScene(rrApp,exportFilePath,</span><span style=' font-family: monospace;'>'OpenDRIVE'</span><span style=' font-family: monospace;'>);</span></div><div  class = 'S2'><span style=' font-family: monospace;'></span><span style=' font-family: monospace;'>end</span></div><div  class = 'S2'><span>导出所有场景文件后，使用该函数关闭 RoadRunner 应用程序。</span><span style=' font-family: monospace;'>close</span></div><div  class = 'S2'><span style=' font-family: monospace;'>close(rrApp);</span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'><span style=' font-family: monospace;'></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 使用 MATLAB 导出多个场景
+% 
+% 
+% 此示例演示如何将场景从 RoadRunner 项目批量导出为 RoadRunner 支持的文件格式之一。在此示例中，您将使用 MATLAB® 函数将场景导出为 
+% ASAM OpenDRIVE® 文件格式。
+% 
+% 若要运行此示例，必须：
+%% 
+% * 拥有自动驾驶工具箱®许可证。
+% * 拥有RoadRunner®许可证并安装产品。
+% * 已创建 RoadRunner 项目文件夹。
+%% *以编程方式启动 RoadRunner*
+% 要使用 MATLAB 函数以编程方式控制 RoadRunner，请使用该对象。默认情况下，从您正在使用的平台（Windows® 或 Linux®）的默认安装文件夹中打开 
+% RoadRunner。以下是按平台划分的默认安装位置：|roadrunnerroadrunner|
+%% 
+% * Windows – C：\Program Files\RoadRunner _R20NNx_\bin\win64
+% * Linux， Ubuntu® – /usr/local/RoadRunner__R20NNx_/bin/glnxa64
+%% 
+% |_R20NNx_| 是您正在使用的版本对应的 MATLAB 版本。
+% 
+% 如果您的 RoadRunner 安装位置与默认位置不同，请使用 MATLAB API 自定义 RoadRunner 安装文件夹的默认值。|settings|
+%% *将场景从RoadRunner导出到ASAM OpenDRIVE*
+% 使用 MATLAB 将场景从 RoadRunner 项目导出为 ASAM OpenDRIVE 格式。
+% 
+% 通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。|roadrunner|
+% 
+% 指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。|C:\RR\MyProjectroadrunnerrrApp,|
+% 
+% |projectFolder = "C:\RR\MyProject";|
+% 
+% |rrApp = roadrunner(projectFolder,InstallationFolder="C:\Program Files\RoadRunner 
+% R2022b\bin\win64");|
+% 
+% 通过将函数与要作为输入参数打开的对象和 RoadRunner 场景一起使用，在项目中打开场景。此示例使用的场景，该场景是 RoadRunner 项目中默认包含的场景之一，位于项目的文件夹中。|openSceneroadrunnerFourWaySignal.rrsceneandScenes|
+% 
+% |sceneName = "FourWaySignal.rrscene";|
+% 
+% |openScene(rrApp,sceneName);|
+% 
+% 通过创建对象来设置导出选项，以启用从文件导出信号和对象。|openDriveExportOptions|
+% 
+% |options = openDriveExportOptions(OpenDriveVersion=1.5,ExportSignals=true,ExportObjects=true);|
+% 
+% 使用该函数将场景导出到 ASAM OpenDRIVE。指定对象、要将场景导出到的文件的名称、导出格式和导出选项作为函数的输入参数。|exportSceneroadrunnerexportScene|
+% 
+% |filename = "FourWaySignal.xodr";|
+% 
+% |formatname = "OpenDRIVE";|
+% 
+% |exportScene(rrApp,filename,formatname,options);|
+%% *将多个场景从RoadRunner导出为ASAM OpenDRIVE格式*
+% 使用 MATLAB 将 RoadRunner 项目中的多个场景导出为 ASAM OpenDRIVE® 格式。
+% 
+% 通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。|roadrunner|
+% 
+% 指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。|C:\RR\MyProjectroadrunnerrrApp,|
+% 
+% |demoProj = fullfile('C:','DemoProject');|
+% 
+% |rrApp = roadrunner(demoProj,InstallationFolder="C:\Program Files\RoadRunner 
+% R2022b\bin\win64");|
+% 
+% 指定要导出的场景文件的路径。您必须指定 RoadRunner 项目中文件夹的路径，其中包含该项目中的所有场景。|Scenes|
+% 
+% |sceneFiles = dir(fullfile(demoProj,'Scenes','*.rrscene'));|
+% 
+% |scenes = {sceneFiles.name};|
+% 
+% 指定导出文件夹的路径。这是RoadRunner将所有场景文件导出到的文件夹。循环访问所有场景文件，使用该函数打开每个场景，然后调用该函数将打开的场景导出为 
+% ASAM OpenDRIVE 格式。|openSceneexportScene|
+% 
+% |exportFolder = fullfile('C:','OpenDRIVE');|
+% 
+% for sndx = 1:numel(scenes)|
+% 
+% |openScene(rrApp,scenes{sndx});|
+% 
+% |[~,fileName] = fileparts(scenes{sndx});|
+% 
+% |exportFilePath = [fullfile(exportFolder,fileName) '.xodr'];|
+% 
+% |exportScene(rrApp,exportFilePath,'OpenDRIVE');|
+% 
+% end|
+% 
+% 导出所有场景文件后，使用该函数关闭 RoadRunner 应用程序。|close|
+% 
+% |close(rrApp);|
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

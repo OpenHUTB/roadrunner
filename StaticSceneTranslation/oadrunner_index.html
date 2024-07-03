@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>RoadRunner</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>RoadRunner</span></h1><div  class = 'S1'><span>RoadRunner</span><span> </span><span>是一个交互式编辑器，可让您设计用于模拟和测试自动驾驶系统。您可以通过创建来自定义道路场景特定地区的道路标志和标记。您可以插入标志、信号、护栏和道路损坏，以及树叶、建筑物和其他 3D 模型。</span><span>RoadRunner</span><span> </span><span>提供了用于设置和配置交通信号时间、阶段和十字路口的车辆路径。</span></div><div  class = 'S1'><span>RoadRunner</span><span> </span><span>支持激光雷达点云、航空影像和 GIS 数据的可视化。 您可以使用 ASAM OpenDRIVE 导入和导出道路网络。使用</span><span>RoadRunner</span><span>构建的3D场景可以导出为FBX，glTF，</span><span>OpenFlight</span><span>，</span><span>OpenSceneGraph</span><span>，OBJ和</span><span>USD</span><span>格式。导出的场景可用于自动驾驶模拟器和游戏引擎，包括</span><span>CARLA，</span><span>VIRES</span><span> </span><span>VTD，NVIDIA DRIVE Sim，SVL，百度Apollo，Unity和Unreal Engine。</span></div><div  class = 'S1'><span>RoadRunner 资源库</span><span>可让您使用大量逼真的和视觉上一致的 3D 模型。</span><span>RoadRunner 场景生成器</span><span>可让您从高清地图自动生成 3D 道路模型。</span></div><div  class = 'S1'><a href = "./get_started_with_roadrunner.html"><span style=' font-weight: bold;'>开始</span></a></div><div  class = 'S1'><span>了解RoadRunner的基础知识</span></div><div  class = 'S1'><a href = "./fundamentals.html"><span style=' font-weight: bold;'>RoadRunner基本知识</span></a></div><div  class = 'S1'><span>摄像机控制、对象选择、资产创建、交互式场景编辑、 故障 排除</span></div><div  class = 'S1'><a href = "./design_scenes.html"><span style=' font-weight: bold;'>设计场景</span></a></div><div  class = 'S1'><span>设计复杂的道路网络，控制路口的交通信号，添加标志和道具，修改地形</span></div><div  class = 'S1'><a href = "./import_scene_data.html"><span style=' font-weight: bold;'>导入场景数据</span></a></div><div  class = 'S1'><span>使用导入的 GIS 数据、ASAM OpenDRIVE 道路网络或高清地图数据构建场景</span></div><div  class = 'S1'><a href = "./export_scenes.html"><span style=' font-weight: bold;'>导出场景</span></a></div><div  class = 'S1'><span>导出场景几何和语义分割数据，导出到 ASAM OpenDRIVE 或 CARLA 等模拟器</span></div><div  class = 'S1'><a href = "./programmatic_scene_interfaces.html"><span style=' font-weight: bold;'>编程场景接口</span></a></div><div  class = 'S1'><span>使用 MATLAB 函数或 gRPC API 导入和导出场景</span></div><div  class = 'S1'><span></span></div><div  class = 'S1'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% RoadRunner
+% RoadRunner 是一个交互式编辑器，可让您设计用于模拟和测试自动驾驶系统。您可以通过创建来自定义道路场景特定地区的道路标志和标记。您可以插入标志、信号、护栏和道路损坏，以及树叶、建筑物和其他 
+% 3D 模型。RoadRunner 提供了用于设置和配置交通信号时间、阶段和十字路口的车辆路径。
+% 
+% RoadRunner 支持激光雷达点云、航空影像和 GIS 数据的可视化。 您可以使用 ASAM OpenDRIVE 导入和导出道路网络。使用RoadRunner构建的3D场景可以导出为FBX，glTF，OpenFlight，OpenSceneGraph，OBJ和USD格式。导出的场景可用于自动驾驶模拟器和游戏引擎，包括CARLA，VIRES 
+% VTD，NVIDIA DRIVE Sim，SVL，百度Apollo，Unity和Unreal Engine。
+% 
+% RoadRunner 资源库可让您使用大量逼真的和视觉上一致的 3D 模型。RoadRunner 场景生成器可让您从高清地图自动生成 3D 道路模型。
+% 
+% <./get_started_with_roadrunner.mlx *开始*>
+% 
+% 了解RoadRunner的基础知识
+% 
+% <./fundamentals.mlx *RoadRunner基本知识*>
+% 
+% 摄像机控制、对象选择、资产创建、交互式场景编辑、 故障 排除
+% 
+% <./design_scenes.mlx *设计场景*>
+% 
+% 设计复杂的道路网络，控制路口的交通信号，添加标志和道具，修改地形
+% 
+% <./import_scene_data.mlx *导入场景数据*>
+% 
+% 使用导入的 GIS 数据、ASAM OpenDRIVE 道路网络或高清地图数据构建场景
+% 
+% <./export_scenes.mlx *导出场景*>
+% 
+% 导出场景几何和语义分割数据，导出到 ASAM OpenDRIVE 或 CARLA 等模拟器
+% 
+% <./programmatic_scene_interfaces.mlx *编程场景接口*>
+% 
+% 使用 MATLAB 函数或 gRPC API 导入和导出场景
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

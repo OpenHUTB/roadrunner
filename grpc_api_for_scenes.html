@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>gRPC场景和高清地图的 API</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>gRPC</span><span>场景和高清地图的 API</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>RoadRunner 提供了一个用于执行常见工作流任务的 API，例如 打开、关闭和保存场景和项目以及导入和导出 场景。此 API 使用远程过程调用 （RPC） 方法，该方法在一组 协议缓冲区 （protobuf） 架构文件，使您能够以编程方式远程控制 RoadRunner。使用 gRPC 框架，可以将这些文件编译为 C++、Python 或 gRPC 支持的其他编程语言。然后，可以编写调用这些方法的客户端应用程序 以您选择的语言控制RoadRunner。</span></div><div  class = 'S2'><span></span></div><h2  class = 'S3'><span>功能</span></h2><div  class = 'S2'><span style=' font-family: monospace;'>AppRoadRunner  </span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>从命令行启动</span><span> </span><span>RoadRunner</span><span> </span><span>应用程序</span></div><h2  class = 'S3'><span>远程过程调用方法</span></h2><div  class = 'S2'><span style=' font-weight: bold;'>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>NewProject</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>创建新的</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>LoadProject</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>加载</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-family: monospace;'>SaveProject</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>保存</span><span> </span><span>RoadRunner</span><span> </span><span>项目</span></div><div  class = 'S2'><span style=' font-weight: bold;'>现场</span></div><div  class = 'S2'><span style=' font-family: monospace;'>NewScene</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>创建新的</span><span>路跑者</span><span>场景</span></div><div  class = 'S2'><span style=' font-family: monospace;'>LoadScene</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>加载</span><span> </span><span>RoadRunner</span><span> </span><span>场景</span></div><div  class = 'S2'><span style=' font-family: monospace;'>SaveScene</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>保存路</span><span>跑者</span><span>场景</span></div><div  class = 'S2'><span style=' font-weight: bold;'>导出、导入和退出</span></div><div  class = 'S2'><span style=' font-family: monospace;'>Export</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>导出路</span><span>跑者</span><span>场景或方案</span></div><div  class = 'S2'><span style=' font-family: monospace;'>Import</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>将文件导入到</span><span>路跑者</span><span>场景或方案中</span></div><div  class = 'S2'><span style=' font-family: monospace;'>Exit</span><span>使用</span><span> </span><span>gRPC</span><span> </span><span>退出</span><span> </span><span>RoadRunner</span><span> </span><span>应用程序</span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><h2  class = 'S3'><span>协议缓冲区架构文件</span></h2><div  class = 'S2'><span style=' font-family: monospace;'>roadrunner_service.proto     </span><span>RoadRunner</span><span> </span><span>service protobuf schema</span></div><div  class = 'S2'><span style=' font-family: monospace;'>roadrunner_service_messages.proto   </span><span>RoadRunner</span><span> </span><span>Service messages protobuf schema</span></div><div  class = 'S2'><span style=' font-family: monospace;'>import_settings.proto </span><span>导入设置 protobuf 架构</span></div><div  class = 'S2'><span style=' font-family: monospace;'>export_settings.proto </span><span>导出设置 protobuf 架构</span></div><div  class = 'S2'><span style=' font-family: monospace;'>geometry.proto </span><span>场景几何原型方案</span></div><h2  class = 'S3'><span>主题</span></h2><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'>开始</span></div><div  class = 'S2'><span>使用 gRPC API</span><span> </span><a href = "./control_roadrunner_programmatically_using_grpc_api.html"><span style=' font-weight: bold;'>以编程方式控制 RoadRunner API</span></a><span></span><span>是使用</span><span> </span><span>gRPC 框架构建的。使用此 API，您可以管理</span><span> </span><span>RoadRunner</span><span> </span><span>项目、场景和场景，导入或导出场景和场景， 并以您选择的语言执行其他编程任务。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>使用接口</span></div><div  class = 'S2'><a href = "./control_roadrunner_using_terminal.html"><span style=' font-weight: bold;'>在控制台模式下</span></a><span></span><span>以编程方式控制RoadRunner 在非图形环境中使用终端启动</span><span>RoadRunner</span><span>。</span></div><div  class = 'S2'><a href = "./convert_roadrunner_scenes_between_formats_using_grpc_api.html"><span style=' font-weight: bold;'>使用 gRPC API</span></a><span></span><span>在格式之间转换场景 以一种格式导入</span><span> </span><span>RoadRunner</span><span> </span><span>场景数据，并使用 命令行 gRPC 客户端。</span></div><div  class = 'S2'><span>使用 </span><span style=' font-weight: bold;'>gRPC API</span><span>导出多个场景 使用命令行将项目中的所有</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出为支持的格式 gRPC 客户端。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>构建 API 客户端</span></div><div  class = 'S2'><span style=' font-weight: bold;'>编译 RoadRunner gRPC API 的协议缓冲区</span><span>将定义</span><span> </span><span>RoadRunner</span><span> </span><span>服务 API</span><span></span><span>的协议缓冲区 （protobuf） 文件编译为所需的编程语言。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>创建用于以编程方式控制RoadRunner的gRPC Python客户端 创建客户端gRPC</span><span>API，用于在Python中使用RoadRunner。</span><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>创建用于以编程方式控制 RoadRunner 的 gRPC C++客户端 创建客户端 gRPC API，以便在 C++</span><span>中使用 RoadRunner。</span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% gRPC场景和高清地图的 API
+% 
+% 
+% RoadRunner 提供了一个用于执行常见工作流任务的 API，例如 打开、关闭和保存场景和项目以及导入和导出 场景。此 API 使用远程过程调用 
+% （RPC） 方法，该方法在一组 协议缓冲区 （protobuf） 架构文件，使您能够以编程方式远程控制 RoadRunner。使用 gRPC 框架，可以将这些文件编译为 
+% C++、Python 或 gRPC 支持的其他编程语言。然后，可以编写调用这些方法的客户端应用程序 以您选择的语言控制RoadRunner。
+% 
+% 
+%% 功能
+% |AppRoadRunner|  使用 gRPC 从命令行启动 RoadRunner 应用程序
+%% 远程过程调用方法
+% *项目*
+% 
+% |NewProject|使用 gRPC 创建新的 RoadRunner 项目
+% 
+% |LoadProject|使用 gRPC 加载 RoadRunner 项目
+% 
+% |SaveProject|使用 gRPC 保存 RoadRunner 项目
+% 
+% *现场*
+% 
+% |NewScene|使用 gRPC 创建新的路跑者场景
+% 
+% |LoadScene|使用 gRPC 加载 RoadRunner 场景
+% 
+% |SaveScene|使用 gRPC 保存路跑者场景
+% 
+% *导出、导入和退出*
+% 
+% |Export|使用 gRPC 导出路跑者场景或方案
+% 
+% |Import|使用 gRPC 将文件导入到路跑者场景或方案中
+% 
+% |Exit|使用 gRPC 退出 RoadRunner 应用程序
+% 
+% 
+%% 协议缓冲区架构文件
+% |roadrunner_service.proto|     RoadRunner service protobuf schema
+% 
+% |roadrunner_service_messages.proto|   RoadRunner Service messages protobuf 
+% schema
+% 
+% |import_settings.proto| 导入设置 protobuf 架构
+% 
+% |export_settings.proto| 导出设置 protobuf 架构
+% 
+% |geometry.proto| 场景几何原型方案
+%% 主题
+% 
+% 
+% *开始*
+% 
+% 使用 gRPC API <./control_roadrunner_programmatically_using_grpc_api.mlx *以编程方式控制 
+% RoadRunner API*>是使用 gRPC 框架构建的。使用此 API，您可以管理 RoadRunner 项目、场景和场景，导入或导出场景和场景， 
+% 并以您选择的语言执行其他编程任务。
+% 
+% *使用接口*
+% 
+% <./control_roadrunner_using_terminal.mlx *在控制台模式下*>以编程方式控制RoadRunner 在非图形环境中使用终端启动RoadRunner。
+% 
+% <./convert_roadrunner_scenes_between_formats_using_grpc_api.mlx *使用 gRPC API*>在格式之间转换场景 
+% 以一种格式导入 RoadRunner 场景数据，并使用 命令行 gRPC 客户端。
+% 
+% 使用 *gRPC API*导出多个场景 使用命令行将项目中的所有 RoadRunner 场景导出为支持的格式 gRPC 客户端。
+% 
+% *构建 API 客户端*
+% 
+% *编译 RoadRunner gRPC API 的协议缓冲区*将定义 RoadRunner 服务 API的协议缓冲区 （protobuf） 文件编译为所需的编程语言。
+% 
+% *创建用于以编程方式控制RoadRunner的gRPC Python客户端 创建客户端gRPC*API，用于在Python中使用RoadRunner。
+% 
+% *创建用于以编程方式控制 RoadRunner 的 gRPC C++客户端 创建客户端 gRPC API，以便在 C++*中使用 RoadRunner。
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

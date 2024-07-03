@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>在控制台模式下以编程方式控制 RoadRunner</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S4 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S5 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>在控制台模式下以编程方式控制</span><span> </span><span>RoadRunner</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>RoadRunner</span><span> </span><span>提供用于执行常见工作流任务的编程接口，例如 打开、关闭和保存场景和项目以及导入和导出场景。您可以 使用 MATLAB 函数或 gRPC API 来执行这些常见的工作流任务。MATLAB 函数通过 MATLAB 对象进行操作，该对象打开并设置主</span><span> </span><span>RoadRunner</span><span> </span><span>用户界面，以便您可以通过编程方式对其进行控制。这些 MATLAB 函数需要自动驾驶工具箱™许可证。gRPC API 使用远程过程调用 （RPC） 方法，该方法在一组协议中定义 缓冲区 （protobuf） 架构文件，使您能够以编程方式远程控制</span><span> </span><span>RoadRunner</span><span>。使用 gRPC 框架，可以将这些文件编译为 C++、Python 或 gRPC 支持的其他编程语言。然后，可以编写调用这些方法的客户端应用程序 以您选择的语言控制</span><span>RoadRunner</span><span>。</span></div><div  class = 'S2'><span>使用 MATLAB 函数和 gRPC API，您可以在控制台模式下启动 RoadRunner，也允许在非图形环境中从终端运行</span><span> </span><span>RoadRunner</span><span>。</span><span>这使得 分布式工作流程，例如，从远程服务器运行</span><span>RoadRunner</span><span>，并使您能够以更大的规模使用</span><span>RoadRunner</span><span>。</span><span>RoadRunner</span><span> </span><span>通常用作可能需要的模拟器中管道的一部分 将场景导入</span><span> </span><span>RoadRunner</span><span> </span><span>并将其导出为与其他模拟器兼容的格式。在控制台模式下使用</span><span> </span><span>RoadRunner</span><span> </span><span>可提高与此类持续集成 （CI） 的集成 系统。它还通过减少加载所需的时间来提高应用程序性能</span><span> </span><span>RoadRunner</span><span> </span><span>中的场景，因为您不需要加载和显示场景图形。</span></div><div  class = 'S2'><span>与交互式</span><span>RoadRunner</span><span>一样，</span><span>RoadRunner</span><span>控制台可以接收从编程接口发送的API命令。您可以 通过编译原型文件、使用应用程序或</span><span> </span><span>RoadRunner</span><span> </span><span>的 MATLAB 函数来编写您自己的客户端。如果您使用的是 gRPC API，请使用</span><span> </span><span style=' font-family: monospace;'>AppRoadRunner</span><span>和参数在非图形环境中启动</span><span> </span><span>RoadRunner</span><span>。</span><span>RoadRunner</span><span> </span><span>提供了一个预编译的辅助命令， 这使您能够从命令行调用</span><span> </span><span>RoadRunner</span><span> </span><span>RPC 方法。此帮助程序命令位于同一 文件夹作为可执行文件。如果您使用的是 MATLAB，请使用带有</span><span> NoDisplay属性的</span><span> </span><span style=' font-family: monospace;'>roadrunner</span><span>对象在非图形环境中启动</span><span> </span><span>RoadRunner</span><span>。</span><span style=' font-family: monospace;'>CmdRoadRunnerApi</span><span style=' font-family: monospace;'>--nodisplay</span><span style=' font-family: monospace;'>CmdRoadRunnerApi</span><span style=' font-family: monospace;'>AppRoadRunner</span></div><div  class = 'S2'><span>以下示例演示如何使用 MATLAB 函数和 gRPC API 在控制台模式下导出</span><span> </span><span>RoadRunner</span><span> </span><span>场景。</span></div><h3  class = 'S3'><span style=' font-weight: bold;'>使用 MATLAB 在控制台模式下导出 RoadRunner 场景</span></h3><div  class = 'S2'><span>此示例演示如何将场景从 RoadRunner 项目导出为 RoadRunner 支持的文件格式之一。在此示例中，您使用 MATLAB函数将场景导出为 ASAM OpenDRIVE 文件格式。</span></div><div  class = 'S2'><span>若要运行此示例，必须：</span></div><ul  class = 'S4'><li  class = 'S5'><span>拥有自动驾驶工具箱®许可证。</span></li><li  class = 'S5'><span>拥有RoadRunner®许可证并安装产品。</span></li><li  class = 'S5'><span>已创建 RoadRunner 项目文件夹</span></li></ul><div  class = 'S2'><span style=' font-weight: bold;'>以编程方式启动 RoadRunner</span></div><div  class = 'S2'><span>要使用 MATLAB 函数以编程方式控制 RoadRunner，请使用该对象。默认情况下，从您正在使用的平台（Windows® 或 Linux®）的默认安装文件夹中打开 RoadRunner。以下是按平台划分的默认安装位置：</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>roadrunner</span></div><ul  class = 'S4'><li  class = 'S5'><span>Windows – C：\Program Files\RoadRunner</span><span> </span><span style=' font-style: italic;'>R20NNx</span><span>\bin\win64</span></li><li  class = 'S5'><span>Linux， Ubuntu® – /usr/local/RoadRunner_</span><span style=' font-style: italic;'>R20NNx</span><span>/bin/glnxa64</span></li></ul><div  class = 'S2'><span style=' font-style: italic; font-family: monospace;'>R20NNx</span><span> </span><span>是您正在使用的版本对应的 MATLAB 版本。</span></div><div  class = 'S2'><span>如果您的 RoadRunner 安装位置与默认位置不同，请使用 MATLAB API 自定义 RoadRunner 安装文件夹的默认值。</span><span style=' font-family: monospace;'>settings</span></div><div  class = 'S2'><span style=' font-weight: bold;'>将场景从RoadRunner导出到ASAM OpenDRIVE</span></div><div  class = 'S2'><span>使用 MATLAB 将场景从 RoadRunner 项目导出为 ASAM OpenDRIVE 格式。</span></div><div  class = 'S2'><span>通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。</span><span style=' font-family: monospace;'>roadrunner</span></div><div  class = 'S2'><span>指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。</span><span style=' font-family: monospace;'>C:\RR\MyProject</span><span style=' font-family: monospace;'>roadrunner</span><span style=' font-family: monospace;'>rrApp,</span></div><div  class = 'S2'><span style=' font-family: monospace;'>projectFolder = </span><span style=' font-family: monospace;'>"C:\RR\MyProject"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>rrApp = roadrunner(projectFolder,InstallationFolder=</span><span style=' font-family: monospace;'>"C:\Program Files\RoadRunner R2022b\bin\win64"</span><span style=' font-family: monospace;'>,NoDisplay=true);</span></div><div  class = 'S2'><span>通过将函数与要作为输入参数打开的对象和 RoadRunner 场景一起使用，在项目中打开场景。此示例使用的场景，该场景是 RoadRunner 项目中默认包含的场景之一，位于项目的文件夹中。</span><span style=' font-family: monospace;'>openSceneroadrunnerFourWaySignal.rrsceneandScenes</span></div><div  class = 'S2'><span style=' font-family: monospace;'>sceneName = </span><span style=' font-family: monospace;'>"FourWaySignal.rrscene"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>openScene(rrApp,sceneName);</span></div><div  class = 'S2'><span>通过创建对象来设置导出选项，以启用从文件导出信号和对象。</span><span style=' font-family: monospace;'>openDriveExportOptions</span></div><div  class = 'S2'><span style=' font-family: monospace;'>options = openDriveExportOptions(OpenDriveVersion=1.5,ExportSignals=true,ExportObjects=true);</span></div><div  class = 'S2'><span>使用该函数将场景导出到 ASAM OpenDRIVE。指定对象、要将场景导出到的文件的名称、导出格式和导出选项作为函数的输入参数。</span><span style=' font-family: monospace;'>exportSceneroadrunnerexportScene</span></div><div  class = 'S2'><span style=' font-family: monospace;'>filename = </span><span style=' font-family: monospace;'>"FourWaySignal.xodr"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>formatname = </span><span style=' font-family: monospace;'>"OpenDRIVE"</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>exportScene(rrApp,filename,formatname,options);</span></div><div  class = 'S2'><span>导航到该文件夹并打开导出的 ASAM OpenDRIVE 文件。验证 &lt;标头&gt; 标记是否包含指定的文件版本。导出文件夹仅包含 ASAM OpenDRIVE 文件和相应的 GeoJSON 文件。</span><span style=' font-family: monospace;'>Exports</span></div><h3  class = 'S3'><span style=' font-weight: bold;'>使用 gRPC API 在控制台模式下导出 RoadRunner 场景</span></h3><div  class = 'S2'><span>本部分介绍如何使用 gRPC API 在控制台模式下导出场景。在此示例中，您将</span><span> </span><span>RoadRunner</span><span> </span><span>场景导出为 ASAM OpenDRIVE 文件格式 命令行操作。有关 gRPC API 的更多详细信息，请考虑使用 gRPC API 以编程方式预览 Control RoadRunner。</span></div><div  class = 'S2'><span>要使用命令行 API 远程控制</span><span> </span><span>RoadRunner</span><span>，您必须首先在 IP 网络端口上启动 API 服务器。开始 通过打开</span><span> </span><span>RoadRunner</span><span> </span><span>项目来访问 API 服务器，您可以使用</span><span> </span><span style=' font-family: monospace;'>AppRoadRunner</span><span>可执行文件以编程方式执行此操作。建议使用 MinGW，因为某些 Windows shell 不会将</span><span> </span><span style=' font-family: monospace;'>AppRoadRunner</span><span>的标准输出输出到命令行。</span></div><div  class = 'S2'><span>从命令行中，导航到包含可执行文件的文件夹。例如，此代码显示 可执行文件在 Windows 上的默认安装位置：</span><span style=' font-family: monospace;'>AppRoadRunner</span></div><div  class = 'S2'><span style=' font-family: monospace;'>cd "C:\Program Files\RoadRunner </span><span style=' font-family: monospace;'>R2023a</span><span style=' font-family: monospace;'>\bin\win64"</span></div><div  class = 'S2'><span>此代码显示可执行文件的默认安装位置 在 Linux 上：</span></div><div  class = 'S2'><span style=' font-family: monospace;'>cd </span><span style=' font-family: monospace;'>/usr/local/RoadRunner_</span><span style=' font-family: monospace;'>R2023a</span><span style=' font-family: monospace;'>/bin/glnxa64</span></div><div  class = 'S2'><span>打开</span><span> </span><span>RoadRunner</span><span> </span><span>到现有项目并设置运行服务器的端口。做 对代码的这些更新：</span></div><ul  class = 'S4'><li  class = 'S5'><span>（可选）将选项值 替换为您选择的 IP 网络端口号， 介于 和 之间，包括。如果你 省略该选项，则</span><span> </span><span>RoadRunner</span><span> </span><span>将打开其默认端口 .</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>54321</span><span style=' font-family: monospace;'>1024</span><span style=' font-family: monospace;'>65535</span><span style=' font-family: monospace;'>apiPort</span><span style=' font-family: monospace;'>35707</span></li><li  class = 'S5'><span>指定在没有GUI窗口的情况下启动</span><span>RoadRunner</span><span>的选项。</span><span style=' font-family: monospace;'>nodisplay</span></li></ul><div  class = 'S2'><span style=' font-family: monospace;'>AppRoadRunner --projectPath="C:\RR\MyProject" --apiPort=54321 --nodisplay</span></div><div  class = 'S2'><span>通过将当前项目中的一个场景导出到 ASAM OpenDRIVE.若要执行这些操作，请使用帮助程序命令。此帮助程序命令位于 与可执行文件位于同一文件夹中。</span><span>®</span><span style=' font-family: monospace;'>CmdRoadRunnerApi</span><span style=' font-family: monospace;'>AppRoadRunner</span></div><div  class = 'S2'><span>通过使用</span><span> </span><span style=' font-family: monospace;'>LoadScene</span><span>RPC 方法加载场景。默认情况下，此场景包含在</span><span>RoadRunner</span><span>项目的文件夹中。在选项中，更换端口 数字，以及您在打开</span><span>RoadRunner</span><span>时指定的值。如果使用了默认端口，请省略此选项。</span><span style=' font-family: monospace;'>FourWaySignal</span><span style=' font-family: monospace;'>Scenes</span><span style=' font-family: monospace;'>serverAddress</span><span style=' font-family: monospace;'>apiPort</span></div><div  class = 'S2'><span style=' font-family: monospace;'>CmdRoadRunnerApi "LoadScene(file_path='FourWaySignal')" --serverAddress=localhost:54321</span></div><div  class = 'S2'><span>使用</span><span style=' font-family: monospace;'>导出</span><span>RPC 方法将场景导出为 ASAM OpenDRIVE 版本 1.6 格式。</span></div><ul  class = 'S4'><li  class = 'S5'><span>对于导出的文件名，请指定与场景相同的名称。默认情况下，</span><span>RoadRunner</span><span> </span><span>将场景导出到 打开的项目。</span><span style=' font-family: monospace;'>Exports</span></li><li  class = 'S5'><span>在选项中，将端口号替换为 打开</span><span> </span><span>RoadRunner</span><span> </span><span>时指定的值。</span><span style=' font-family: monospace;'>serverAddress</span><span style=' font-family: monospace;'>apiPort</span></li></ul><div  class = 'S2'><span style=' font-family: monospace;'>CmdRoadRunnerApi "Export(file_path='FourWaySignal.xodr' format_name='opendrive' open_drive_settings.open_drive_version='1.6')" ^</span></div><div  class = 'S2'><span style=' font-family: monospace;'>--serverAddress=localhost:54321</span></div><div  class = 'S2'><span>导航到该文件夹并打开导出的 ASAM OpenDRIVE 文件。验证标记是否包含 指定的文件版本。</span><span style=' font-family: monospace;'>Exports</span><span style=' font-family: monospace;'>&lt;header&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>cd "C:\RR\MyProject\Exports"</span></div><div  class = 'S2'><span style=' font-family: monospace;'>FourWaySignal.xodr</span></div><div  class = 'S2'><span style=' font-family: monospace;'>&lt;OpenDRIVE&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    &lt;header revMajor="1" revMinor="6" ...&gt;</span></div><div  class = 'S2'><span style=' font-family: monospace;'>    ...</span></div><div  class = 'S2'><span>如果项目仅包含默认场景，则文件夹仅包含 ASAM OpenDRIVE文件和相应的GeoJSON文件。</span></div><div  class = 'S2'><span style=' font-family: monospace;'>FourWaySignal.xodr</span></div><div  class = 'S2'><span style=' font-family: monospace;'>FourWaySignal.geojson</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 在控制台模式下以编程方式控制 RoadRunner
+% 
+% 
+% RoadRunner 提供用于执行常见工作流任务的编程接口，例如 打开、关闭和保存场景和项目以及导入和导出场景。您可以 使用 MATLAB 函数或 
+% gRPC API 来执行这些常见的工作流任务。MATLAB 函数通过 MATLAB 对象进行操作，该对象打开并设置主 RoadRunner 用户界面，以便您可以通过编程方式对其进行控制。这些 
+% MATLAB 函数需要自动驾驶工具箱™许可证。gRPC API 使用远程过程调用 （RPC） 方法，该方法在一组协议中定义 缓冲区 （protobuf） 
+% 架构文件，使您能够以编程方式远程控制 RoadRunner。使用 gRPC 框架，可以将这些文件编译为 C++、Python 或 gRPC 支持的其他编程语言。然后，可以编写调用这些方法的客户端应用程序 
+% 以您选择的语言控制RoadRunner。
+% 
+% 使用 MATLAB 函数和 gRPC API，您可以在控制台模式下启动 RoadRunner，也允许在非图形环境中从终端运行 RoadRunner。这使得 
+% 分布式工作流程，例如，从远程服务器运行RoadRunner，并使您能够以更大的规模使用RoadRunner。RoadRunner 通常用作可能需要的模拟器中管道的一部分 
+% 将场景导入 RoadRunner 并将其导出为与其他模拟器兼容的格式。在控制台模式下使用 RoadRunner 可提高与此类持续集成 （CI） 的集成 
+% 系统。它还通过减少加载所需的时间来提高应用程序性能 RoadRunner 中的场景，因为您不需要加载和显示场景图形。
+% 
+% 与交互式RoadRunner一样，RoadRunner控制台可以接收从编程接口发送的API命令。您可以 通过编译原型文件、使用应用程序或 RoadRunner 
+% 的 MATLAB 函数来编写您自己的客户端。如果您使用的是 gRPC API，请使用 |AppRoadRunner|和参数在非图形环境中启动 RoadRunner。RoadRunner 
+% 提供了一个预编译的辅助命令， 这使您能够从命令行调用 RoadRunner RPC 方法。此帮助程序命令位于同一 文件夹作为可执行文件。如果您使用的是 
+% MATLAB，请使用带有 NoDisplay属性的 |roadrunner|对象在非图形环境中启动 RoadRunner。|CmdRoadRunnerApiREPLACE_WITH_DASH_DASHnodisplayCmdRoadRunnerApiAppRoadRunner|
+% 
+% 以下示例演示如何使用 MATLAB 函数和 gRPC API 在控制台模式下导出 RoadRunner 场景。
+% *使用 MATLAB 在控制台模式下导出 RoadRunner 场景*
+% 此示例演示如何将场景从 RoadRunner 项目导出为 RoadRunner 支持的文件格式之一。在此示例中，您使用 MATLAB函数将场景导出为 
+% ASAM OpenDRIVE 文件格式。
+% 
+% 若要运行此示例，必须：
+%% 
+% * 拥有自动驾驶工具箱®许可证。
+% * 拥有RoadRunner®许可证并安装产品。
+% * 已创建 RoadRunner 项目文件夹
+%% 
+% *以编程方式启动 RoadRunner*
+% 
+% 要使用 MATLAB 函数以编程方式控制 RoadRunner，请使用该对象。默认情况下，从您正在使用的平台（Windows® 或 Linux®）的默认安装文件夹中打开 
+% RoadRunner。以下是按平台划分的默认安装位置：|roadrunnerroadrunner|
+%% 
+% * Windows – C：\Program Files\RoadRunner _R20NNx_\bin\win64
+% * Linux， Ubuntu® – /usr/local/RoadRunner__R20NNx_/bin/glnxa64
+%% 
+% |_R20NNx_| 是您正在使用的版本对应的 MATLAB 版本。
+% 
+% 如果您的 RoadRunner 安装位置与默认位置不同，请使用 MATLAB API 自定义 RoadRunner 安装文件夹的默认值。|settings|
+% 
+% *将场景从RoadRunner导出到ASAM OpenDRIVE*
+% 
+% 使用 MATLAB 将场景从 RoadRunner 项目导出为 ASAM OpenDRIVE 格式。
+% 
+% 通过指定创建项目的位置，使用该函数在RoadRunner中打开项目。此示例假定 RoadRunner 安装在其在 Windows 中的默认位置。|roadrunner|
+% 
+% 指定现有项目的路径。例如，此代码显示位于 上的项目的路径。该函数返回一个对象，该对象提供用于执行基本工作流任务（如打开、关闭和保存场景和项目）的函数。|C:\RR\MyProjectroadrunnerrrApp,|
+% 
+% |projectFolder = "C:\RR\MyProject";|
+% 
+% |rrApp = roadrunner(projectFolder,InstallationFolder="C:\Program Files\RoadRunner 
+% R2022b\bin\win64",NoDisplay=true);|
+% 
+% 通过将函数与要作为输入参数打开的对象和 RoadRunner 场景一起使用，在项目中打开场景。此示例使用的场景，该场景是 RoadRunner 项目中默认包含的场景之一，位于项目的文件夹中。|openSceneroadrunnerFourWaySignal.rrsceneandScenes|
+% 
+% |sceneName = "FourWaySignal.rrscene";|
+% 
+% |openScene(rrApp,sceneName);|
+% 
+% 通过创建对象来设置导出选项，以启用从文件导出信号和对象。|openDriveExportOptions|
+% 
+% |options = openDriveExportOptions(OpenDriveVersion=1.5,ExportSignals=true,ExportObjects=true);|
+% 
+% 使用该函数将场景导出到 ASAM OpenDRIVE。指定对象、要将场景导出到的文件的名称、导出格式和导出选项作为函数的输入参数。|exportSceneroadrunnerexportScene|
+% 
+% |filename = "FourWaySignal.xodr";|
+% 
+% |formatname = "OpenDRIVE";|
+% 
+% |exportScene(rrApp,filename,formatname,options);|
+% 
+% 导航到该文件夹并打开导出的 ASAM OpenDRIVE 文件。验证 <标头> 标记是否包含指定的文件版本。导出文件夹仅包含 ASAM OpenDRIVE 
+% 文件和相应的 GeoJSON 文件。|Exports|
+% *使用 gRPC API 在控制台模式下导出 RoadRunner 场景*
+% 本部分介绍如何使用 gRPC API 在控制台模式下导出场景。在此示例中，您将 RoadRunner 场景导出为 ASAM OpenDRIVE 文件格式 
+% 命令行操作。有关 gRPC API 的更多详细信息，请考虑使用 gRPC API 以编程方式预览 Control RoadRunner。
+% 
+% 要使用命令行 API 远程控制 RoadRunner，您必须首先在 IP 网络端口上启动 API 服务器。开始 通过打开 RoadRunner 项目来访问 
+% API 服务器，您可以使用 |AppRoadRunner|可执行文件以编程方式执行此操作。建议使用 MinGW，因为某些 Windows shell 不会将 
+% |AppRoadRunner|的标准输出输出到命令行。
+% 
+% 从命令行中，导航到包含可执行文件的文件夹。例如，此代码显示 可执行文件在 Windows 上的默认安装位置：|AppRoadRunner|
+% 
+% |cd "C:\Program Files\RoadRunner R2023a\bin\win64"|
+% 
+% 此代码显示可执行文件的默认安装位置 在 Linux 上：
+% 
+% |cd /usr/local/RoadRunner_R2023a/bin/glnxa64|
+% 
+% 打开 RoadRunner 到现有项目并设置运行服务器的端口。做 对代码的这些更新：
+%% 
+% * （可选）将选项值 替换为您选择的 IP 网络端口号， 介于 和 之间，包括。如果你 省略该选项，则 RoadRunner 将打开其默认端口 .|apiPort54321102465535apiPort35707|
+% * 指定在没有GUI窗口的情况下启动RoadRunner的选项。|nodisplay|
+%% 
+% |AppRoadRunner REPLACE_WITH_DASH_DASHprojectPath="C:\RR\MyProject" REPLACE_WITH_DASH_DASHapiPort=54321 REPLACE_WITH_DASH_DASHnodisplay|
+% 
+% 通过将当前项目中的一个场景导出到 ASAM OpenDRIVE.若要执行这些操作，请使用帮助程序命令。此帮助程序命令位于 与可执行文件位于同一文件夹中。®|CmdRoadRunnerApiAppRoadRunner|
+% 
+% 通过使用 |LoadScene|RPC 方法加载场景。默认情况下，此场景包含在RoadRunner项目的文件夹中。在选项中，更换端口 数字，以及您在打开RoadRunner时指定的值。如果使用了默认端口，请省略此选项。|FourWaySignalScenesserverAddressapiPort|
+% 
+% |CmdRoadRunnerApi "LoadScene(file_path='FourWaySignal')" REPLACE_WITH_DASH_DASHserverAddress=localhost:54321|
+% 
+% 使用|导出|RPC 方法将场景导出为 ASAM OpenDRIVE 版本 1.6 格式。
+%% 
+% * 对于导出的文件名，请指定与场景相同的名称。默认情况下，RoadRunner 将场景导出到 打开的项目。|Exports|
+% * 在选项中，将端口号替换为 打开 RoadRunner 时指定的值。|serverAddressapiPort|
+%% 
+% |CmdRoadRunnerApi "Export(file_path='FourWaySignal.xodr' format_name='opendrive' 
+% open_drive_settings.open_drive_version='1.6')" ^|
+% 
+% |REPLACE_WITH_DASH_DASHserverAddress=localhost:54321|
+% 
+% 导航到该文件夹并打开导出的 ASAM OpenDRIVE 文件。验证标记是否包含 指定的文件版本。|Exports<header>|
+% 
+% |cd "C:\RR\MyProject\Exports"|
+% 
+% |FourWaySignal.xodr|
+% 
+% |<OpenDRIVE>|
+% 
+% |<header revMajor="1" revMinor="6" ...>|
+% 
+% |...|
+% 
+% 如果项目仅包含默认场景，则文件夹仅包含 ASAM OpenDRIVE文件和相应的GeoJSON文件。
+% 
+% |FourWaySignal.xodr|
+% 
+% |FourWaySignal.geojson|
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

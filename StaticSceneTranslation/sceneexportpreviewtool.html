@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>Scene Export Preview Tool</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S5 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S6 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Scene Export Preview Tool</span></h1><div  class = 'S1'><span></span></div><h2  class = 'S2'><span>描述</span></h2><div  class = 'S3'><span>场景</span><span style=' font-weight: bold;'>导出工具</span><span>可用于可视化确切的场景 将导出的几何图形。您还可以使用它来查询属性，例如三角形和 材料很重要。图块计数是通过将</span><span style=' font-weight: bold;'>图块大小</span><span>和</span><span style=' font-weight: bold;'>中心</span><span>参数拟合到</span><span style=' font-weight: bold;'>场景来确定的 盘区</span><span>。</span></div><h2  class = 'S2'><span>打开场景导出预览工具</span></h2><div  class = 'S3'><span>在 RoadRunner 工具栏上，单击</span><span style=' font-weight: bold;'>场景导出预览工具</span><span>按钮：</span></div><div  class = 'S3'><img class = "imageNode" src = "data:image/png;base64,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" width = "70" height = "70" alt = "" style = "vertical-align: baseline; width: 70px; height: 70px;"></img></div><h2  class = 'S2'><span>例子</span></h2><h3  class = 'S4'><span style=' font-weight: bold;'>调整导出磁贴大小</span></h3><ol  class = 'S5'><li  class = 'S6'><span>选择</span><span style=' font-weight: bold;'>导出到磁贴</span><span>开关。</span></li><li  class = 'S6'><span>调整</span><span style=' font-weight: bold;'>切片大小</span><span>参数以修改 单个磁贴。</span></li><li  class = 'S6'><span>调整</span><span style=' font-weight: bold;'>中心</span><span>参数以修改整体平铺 中心。</span></li><li  class = 'S6'><span>单击</span><span style=' font-weight: bold;'>预览导出</span><span>。</span></li></ol><h3  class = 'S4'><span style=' font-weight: bold;'>预览分段输出</span></h3><ol  class = 'S5'><li  class = 'S6'><span>修改按</span><span style=' font-weight: bold;'>分段拆分</span><span>开关。</span></li><li  class = 'S6'><span>按</span><span style=' font-weight: bold;'>预览导出</span><span>。</span></li><li  class = 'S6'><span>启用细分显示以在此工具中预览细分类别。</span></li></ol><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'><span></span></div><div  class = 'S3'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Scene Export Preview Tool
+% 
+%% 描述
+% 场景*导出工具*可用于可视化确切的场景 将导出的几何图形。您还可以使用它来查询属性，例如三角形和 材料很重要。图块计数是通过将*图块大小*和*中心*参数拟合到*场景来确定的 
+% 盘区*。
+%% 打开场景导出预览工具
+% 在 RoadRunner 工具栏上，单击*场景导出预览工具*按钮：
+% 
+% 
+%% 例子
+% *调整导出磁贴大小*
+%% 
+% # 选择*导出到磁贴*开关。
+% # 调整*切片大小*参数以修改 单个磁贴。
+% # 调整*中心*参数以修改整体平铺 中心。
+% # 单击*预览导出*。
+% *预览分段输出*
+%% 
+% # 修改按*分段拆分*开关。
+% # 按*预览导出*。
+% # 启用细分显示以在此工具中预览细分类别。
+%% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

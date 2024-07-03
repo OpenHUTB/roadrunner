@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>设计场景</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: center;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>设计场景</span></h1><div  class = 'S1'><span></span></div><div  class = 'S2'><span>设计复杂的道路网络，控制路口的交通信号，添加标志和道具，修改地形。</span></div><div  class = 'S2'><span>RoadRunner 使您能够创建逼真的道路和环境进行模拟。通过使用场景设计工具和一组专业设计的资产，您可以增强基于导入数据构建的现有场景或创建新场景。</span></div><h2  class = 'S3'><span>重点主题</span></h2><div  class = 'S2'><a href = "./manipulate_scene_objects.html"><span style=' font-weight: bold;'>操作场景对象</span></a></div><div  class = 'S2'><a href = "./roadplantool.html"><span style=' font-weight: bold;'>道路规划工具</span></a></div><div  class = 'S2'><a href = "./create_import_and_modify_assets.html"><span style=' font-weight: bold;'>创建、导入和修改资产</span></a></div><div  class = 'S2'><a href = "./signaltool.html"><span style=' font-weight: bold;'>信号工具</span></a></div><div  class = 'S2'><a href = "./signtool.html"><span style=' font-weight: bold;'>签名工具</span></a></div><div  class = 'S2'><a href = "./create_parking_garage.html"><span style=' font-weight: bold;'>创建停车库</span></a></div><h2  class = 'S3'><span>类别</span></h2><div  class = 'S2'><span style=' font-weight: bold;'></span></div><div  class = 'S2'><a href = "./roads_lanes_and_markings.html"><span style=' font-weight: bold;'>道路、车道和标记</span></a><span></span></div><div  class = 'S2'><span>创建不同类型和形状的道路网络，修改车道属性，添加道路模具和车道标记</span></div><div  class = 'S2'><a href = "./junctions_and_traffic_signals.html"><span style=' font-weight: bold;'>路口和交通信号灯</span></a><span></span></div><div  class = 'S2'><span>设计道路网络，修改通过交汇点的车道连通性，添加工作交通信号灯</span></div><div  class = 'S2'><a href = "./props_and_signs.html"><span style=' font-weight: bold;'>道具和标志</span></a><span></span></div><div  class = 'S2'><span>向场景添加树木、柱子、护栏、路牌和广告牌</span></div><div  class = 'S2'><a href = "./surfaces_and_terrains.html"><span style=' font-weight: bold;'>表面和地形</span></a><span></span></div><div  class = 'S2'><span>定义表面的视觉属性，对道路之间和周围的地形进行建模</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 设计场景
+% 
+% 
+% 设计复杂的道路网络，控制路口的交通信号，添加标志和道具，修改地形。
+% 
+% RoadRunner 使您能够创建逼真的道路和环境进行模拟。通过使用场景设计工具和一组专业设计的资产，您可以增强基于导入数据构建的现有场景或创建新场景。
+%% 重点主题
+% <./manipulate_scene_objects.mlx *操作场景对象*>
+% 
+% <./roadplantool.mlx *道路规划工具*>
+% 
+% <./create_import_and_modify_assets.mlx *创建、导入和修改资产*>
+% 
+% <./signaltool.mlx *信号工具*>
+% 
+% <./signtool.mlx *签名工具*>
+% 
+% <./create_parking_garage.mlx *创建停车库*>
+%% 类别
+% 
+% 
+% <./roads_lanes_and_markings.mlx *道路、车道和标记*>
+% 
+% 创建不同类型和形状的道路网络，修改车道属性，添加道路模具和车道标记
+% 
+% <./junctions_and_traffic_signals.mlx *路口和交通信号灯*>
+% 
+% 设计道路网络，修改通过交汇点的车道连通性，添加工作交通信号灯
+% 
+% <./props_and_signs.mlx *道具和标志*>
+% 
+% 向场景添加树木、柱子、护栏、路牌和广告牌
+% 
+% <./surfaces_and_terrains.mlx *表面和地形*>
+% 
+% 定义表面的视觉属性，对道路之间和周围的地形进行建模
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>
