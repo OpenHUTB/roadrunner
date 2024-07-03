@@ -9,6 +9,25 @@
 <img src=fig/valid_link.png alt="插入链接" width="780" />
 
 
+## 页面部署
+1. 新建孤儿分支，该分支会包含父分支所有的文件：
+```shell
+git checkout --orphan gh-deploy
+```
+删除所有git管理的文件，并添加所有`hmlt`文件：
+```shell
+git rm -rf .
+git add *.html
+```
+2. 提交分支
+```shell
+git commit -m 'init'
+git push origin gh-deploy
+```
+3. 配置页面
+在 `Github` 项目设置中选择 `gh-deploy` 的分支，目录选择`/(root)`（注意不要是`/(docs)`，然后通过 `https://openhutb.github.io/roadrunner/` 访问即可。
+
+
 ## 注意
 1. 将页面中的链接改为本地`html`文件链接。
 
